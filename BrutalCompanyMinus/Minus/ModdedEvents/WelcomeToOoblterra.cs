@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Welcome to Ooblterra", "Its in the name... Ooblterra!", "Ooblterra is a place of horror and monsters" };
+            Descriptions = new List<string>() { "우블테라(Ooblterra)에 오신 걸 환영합니다", "이름부터 심상치 않죠... 우블테라라니!", "우블테라는 공포와 괴물들로 가득 찬 지옥입니다" };
             ColorHex = "#FF0000";
             Type = EventType.VeryBad;
 

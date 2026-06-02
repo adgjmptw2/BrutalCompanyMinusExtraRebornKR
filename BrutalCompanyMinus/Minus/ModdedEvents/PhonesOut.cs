@@ -17,7 +17,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Please leave a message after the beep..", "Bad reception", "Phone lines are down", "I think the phones are broken" };
+            Descriptions = new List<string>() { "삐 소리 후에 메시지를 남겨주세요..", "수신 상태 불량", "전화선이 끊겼습니다", "전화기가 고장 난 것 같아요" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

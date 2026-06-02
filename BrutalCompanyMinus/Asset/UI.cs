@@ -356,7 +356,7 @@ namespace BrutalCompanyMinus
         public static void GenerateText(List<MEvent> events)
         {
             // Generate Text
-            string text = $"<br><color=#{colorTextHex}>Events:</color><br>";
+            string text = $"<br><color=#{colorTextHex}>이벤트:</color><br>";
             foreach (string eventDescription in EventManager.currentEventDescriptions)
             {
                 text += $"<color=#{colorTextHex}>-</color>{eventDescription}<br>";
@@ -370,15 +370,15 @@ namespace BrutalCompanyMinus
 
                 text += GetDifficultyText();
 
-                text += $"<br><br><color=#{colorTextHex}>Other:</color>";
+                text += $"<br><br><color=#{colorTextHex}>추가사항:</color>";
 
                 text +=
-                    $"<br><color=#{colorTextHex}> -Scrap Value: x{ScrapValueMultiplier:F2}</color>" +
-                    $"<br><color=#{colorTextHex}> -Scrap Amount: x{(RoundManager.Instance.scrapAmountMultiplier * Manager.scrapAmountMultiplier):F2}</color>" +
-                    $"<br><color=#{colorTextHex}> -Factory Size: x{RoundManager.Instance.currentLevel.factorySizeMultiplier:F2}</color>" +
-                    $"<br><color=#{colorTextHex}> -Spawn Chance: x{Manager.spawnChanceMultiplier:F2}</color>" +
-                    $"<br><color=#{colorTextHex}> -Spawn Cap: x{Manager.spawncapMultipler:F2}</color>" +
-                    $"<br><color=#{colorTextHex}> -Bonus enemy hp: {plusMinus(Manager.bonusEnemyHp)}</color>"
+                    $"<br><color=#{colorTextHex}> -스크랩 가치: x{ScrapValueMultiplier:F2}</color>" +
+                    $"<br><color=#{colorTextHex}> -스크랩 수: x{(RoundManager.Instance.scrapAmountMultiplier * Manager.scrapAmountMultiplier):F2}</color>" +
+                    $"<br><color=#{colorTextHex}> -시설 크기: x{RoundManager.Instance.currentLevel.factorySizeMultiplier:F2}</color>" +
+                    $"<br><color=#{colorTextHex}> -생성 확률: x{Manager.spawnChanceMultiplier:F2}</color>" +
+                    $"<br><color=#{colorTextHex}> -몬스터 최대 수: x{Manager.spawncapMultipler:F2}</color>" +
+                    $"<br><color=#{colorTextHex}> -적 추가 체력: {plusMinus(Manager.bonusEnemyHp)}</color>"
                     ;
             }
 
@@ -420,15 +420,15 @@ namespace BrutalCompanyMinus
                 {
                     EventManager.UpdateAllEventWeights();
                     text +=
-                        $"<br><color=#{colorTextHex}>EventType Chances:</color>" +
-                        $"<br> <color=#{colorTextHex}>-</color><color=#8B008B>Insane</color><color=#{colorTextHex}>:   {Helper.GetPercentage(EventManager.eventTypeRarities[0])}</color>" +
-                        $"<br> <color=#{colorTextHex}>-</color><color=#800000>VeryBad</color><color=#{colorTextHex}>:  {Helper.GetPercentage(EventManager.eventTypeRarities[1])}</color>" +
-                        $"<br> <color=#{colorTextHex}>-</color><color=#FF0000>Bad</color><color=#{colorTextHex}>:      {Helper.GetPercentage(EventManager.eventTypeRarities[2])}</color>" +
-                        $"<br> <color=#{colorTextHex}>-</color><color=#FFFFFF>Neutral</color><color=#{colorTextHex}>:  {Helper.GetPercentage(EventManager.eventTypeRarities[3])}</color>" +
-                        $"<br> <color=#{colorTextHex}>-</color><color=#008000>Good</color><color=#{colorTextHex}>:     {Helper.GetPercentage(EventManager.eventTypeRarities[4])}</color>" +
-                        $"<br> <color=#{colorTextHex}>-</color><color=#00FF00>VeryGood</color><color=#{colorTextHex}>: {Helper.GetPercentage(EventManager.eventTypeRarities[5])}</color>" +
-                        $"<br> <color=#{colorTextHex}>-</color><color=#00FFFF>Rare</color><color=#{colorTextHex}>:     {Helper.GetPercentage(EventManager.eventTypeRarities[6])}</color>" +
-                        $"<br> <color=#{colorTextHex}>-</color><color=#008000>Remove</color><color=#{colorTextHex}>:   {Helper.GetPercentage(EventManager.eventTypeRarities[7])}</color><br>";
+                        $"<br><color=#{colorTextHex}>이벤트 난이도 확률:</color>" +
+                        $"<br> <color=#{colorTextHex}>-</color><color=#8B008B>불가능</color><color=#{colorTextHex}>:   {Helper.GetPercentage(EventManager.eventTypeRarities[0])}</color>" +
+                        $"<br> <color=#{colorTextHex}>-</color><color=#800000>매우나쁨</color><color=#{colorTextHex}>:  {Helper.GetPercentage(EventManager.eventTypeRarities[1])}</color>" +
+                        $"<br> <color=#{colorTextHex}>-</color><color=#FF0000>나쁨</color><color=#{colorTextHex}>:      {Helper.GetPercentage(EventManager.eventTypeRarities[2])}</color>" +
+                        $"<br> <color=#{colorTextHex}>-</color><color=#FFFFFF>일상</color><color=#{colorTextHex}>:  {Helper.GetPercentage(EventManager.eventTypeRarities[3])}</color>" +
+                        $"<br> <color=#{colorTextHex}>-</color><color=#008000>좋음</color><color=#{colorTextHex}>:     {Helper.GetPercentage(EventManager.eventTypeRarities[4])}</color>" +
+                        $"<br> <color=#{colorTextHex}>-</color><color=#00FF00>매우좋음</color><color=#{colorTextHex}>: {Helper.GetPercentage(EventManager.eventTypeRarities[5])}</color>" +
+                        $"<br> <color=#{colorTextHex}>-</color><color=#00FFFF>희귀</color><color=#{colorTextHex}>:     {Helper.GetPercentage(EventManager.eventTypeRarities[6])}</color>" +
+                        $"<br> <color=#{colorTextHex}>-</color><color=#008000>삭제됨</color><color=#{colorTextHex}>:   {Helper.GetPercentage(EventManager.eventTypeRarities[7])}</color><br>";
                 }
 
                 text += GetDifficultyText();
@@ -444,15 +444,15 @@ namespace BrutalCompanyMinus
         private static string GetDifficultyText()
         {
             string text =
-                $"<br><color=#{colorTextHex}>Difficulty:</color> {Helper.GetDifficultyText()}" +
-                $"<br><color=#{colorTextHex}> -Difficulty:</color>  <color=#{Helper.GetDifficultyColorHex(Manager.difficulty, Configuration.difficultyMaxCap.Value)}>{Manager.difficulty:F1}</color>";
+                $"<br><color=#{colorTextHex}>난이도:</color> {Helper.GetDifficultyText()}" +
+                $"<br><color=#{colorTextHex}> -난이도  :</color>  <color=#{Helper.GetDifficultyColorHex(Manager.difficulty, Configuration.difficultyMaxCap.Value)}>{Manager.difficulty:F1}</color>";
 
-            if (Configuration.scaleByDaysPassed.Value) text += $"<br><color=#{colorTextHex}> -Day:        </color><color=#{Helper.GetDifficultyColorHex(Manager.daysDifficulty, Configuration.daysPassedDifficultyCap.Value)}>{plusMinusExclusive(Manager.daysDifficulty)}{Manager.daysDifficulty:F1}</color>";
-            if (Configuration.scaleByQuota.Value) text += $"<br><color=#{colorTextHex}> -Quota:      </color><color=#{Helper.GetDifficultyColorHex(Manager.quotaDifficulty, Configuration.quotaDifficultyCap.Value)}>{plusMinusExclusive(Manager.quotaDifficulty)}{Manager.quotaDifficulty:F1}</color>";
-            if (Configuration.scaleByScrapInShip.Value) text += $"<br><color=#{colorTextHex}> -Ship Scrap: </color><color=#{Helper.GetDifficultyColorHex(Manager.scrapInShipDifficulty, Configuration.scrapInShipDifficultyCap.Value)}>{plusMinusExclusive(Manager.scrapInShipDifficulty)}{Manager.scrapInShipDifficulty:F1}</color>";
-            if (Configuration.scaleByMoonGrade.Value) text += $"<br><color=#{colorTextHex}> -Moon risk:  </color><color=#{Helper.GetDifficultyColorHex(Manager.moonGradeDifficulty, Configuration.gradeAdditives["S+++"])}>{plusMinusExclusive(Manager.moonGradeDifficulty)}{Manager.moonGradeDifficulty:F1}</color>";
-            if (Configuration.scaleByWeather.Value) text += $"<br><color=#{colorTextHex}> -Weather:    </color><color=#{Helper.GetDifficultyColorHex(Manager.weatherDifficulty, (float)Int32.MaxValue)}>{plusMinusExclusive(Manager.weatherDifficulty)}{Manager.weatherDifficulty:F1}</color>";
-            if (Configuration.scaleHeat.Value) text += $"<br><color=#{colorTextHex}> -Heat:       </color><color=#{Helper.GetDifficultyColorHex(EventManager.currentHeatDifficulty(), Configuration.heatMaxCap.Value)}>{plusMinusExclusive(EventManager.currentHeatDifficulty())}{EventManager.currentHeatDifficulty():F1}</color>";
+            if (Configuration.scaleByDaysPassed.Value) text += $"<br><color=#{colorTextHex}> -일수:    </color><color=#{Helper.GetDifficultyColorHex(Manager.daysDifficulty, Configuration.daysPassedDifficultyCap.Value)}>{plusMinusExclusive(Manager.daysDifficulty)}{Manager.daysDifficulty:F1}</color>";
+            if (Configuration.scaleByQuota.Value) text += $"<br><color=#{colorTextHex}> -할당량:      </color><color=#{Helper.GetDifficultyColorHex(Manager.quotaDifficulty, Configuration.quotaDifficultyCap.Value)}>{plusMinusExclusive(Manager.quotaDifficulty)}{Manager.quotaDifficulty:F1}</color>";
+            if (Configuration.scaleByScrapInShip.Value) text += $"<br><color=#{colorTextHex}> -함선스크랩: </color><color=#{Helper.GetDifficultyColorHex(Manager.scrapInShipDifficulty, Configuration.scrapInShipDifficultyCap.Value)}>{plusMinusExclusive(Manager.scrapInShipDifficulty)}{Manager.scrapInShipDifficulty:F1}</color>";
+            if (Configuration.scaleByMoonGrade.Value) text += $"<br><color=#{colorTextHex}> -위성 난이도: </color><color=#{Helper.GetDifficultyColorHex(Manager.moonGradeDifficulty, Configuration.gradeAdditives["S+++"])}>{plusMinusExclusive(Manager.moonGradeDifficulty)}{Manager.moonGradeDifficulty:F1}</color>";
+            if (Configuration.scaleByWeather.Value) text += $"<br><color=#{colorTextHex}> -날씨:    </color><color=#{Helper.GetDifficultyColorHex(Manager.weatherDifficulty, (float)Int32.MaxValue)}>{plusMinusExclusive(Manager.weatherDifficulty)}{Manager.weatherDifficulty:F1}</color>";
+            if (Configuration.scaleHeat.Value) text += $"<br><color=#{colorTextHex}> -열기:       </color><color=#{Helper.GetDifficultyColorHex(EventManager.currentHeatDifficulty(), Configuration.heatMaxCap.Value)}>{plusMinusExclusive(EventManager.currentHeatDifficulty())}{EventManager.currentHeatDifficulty():F1}</color>";
 
             return text;
         }
@@ -569,7 +569,7 @@ namespace BrutalCompanyMinus
 
             if (Configuration.showEventsInChat.Value)
             {
-                HUDManager.Instance.AddTextToChatOnServer("<color=#FFFFFF>Events:</color>");
+                HUDManager.Instance.AddTextToChatOnServer("<color=#FFFFFF>이벤트:</color>");
                 foreach (string eventDescription in EventManager.currentEventDescriptions)
                 {
                     HUDManager.Instance.AddTextToChatOnServer(eventDescription);

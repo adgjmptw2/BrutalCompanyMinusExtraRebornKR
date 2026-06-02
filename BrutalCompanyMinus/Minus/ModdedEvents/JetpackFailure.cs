@@ -16,7 +16,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 4;
-            Descriptions = new List<string>() { "Out of jet fuel", "Warning! Jetpacks not permited in this area!" };
+            Descriptions = new List<string>() { "제트 연료 고갈", "경고! 이 구역은 제트팩 사용 금지 구역입니다!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
         }

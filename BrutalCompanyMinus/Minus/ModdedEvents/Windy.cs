@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Tornado Warning!", "A tornado is approaching!", "Seek shelter immediately!" };
+            Descriptions = new List<string>() { "토네이도 주의보 발령!", "초대형 토네이도가 접근 중입니다!", "즉시 함선으로 대피하십시오! (아니면 날아가던가요)" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

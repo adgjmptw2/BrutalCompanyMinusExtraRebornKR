@@ -26,7 +26,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "The conduction of lightning has been switched!", "Metal items are now not metal, and non-metal items are now metal!" };
+            Descriptions = new List<string>() { "번개의 전도 방향이 바뀌었습니다!", "금속 물건은 이제 금속이 아니고, 비금속 물건은 이제 금속이 되었습니다!" };
             ColorHex = "#CF9FFF";
             Type = EventType.Neutral;
 

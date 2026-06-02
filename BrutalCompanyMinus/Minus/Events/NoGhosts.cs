@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "No ghosts", "No more paranormal activity", "The ghost busters have cleared this facility of ghosts." };
+            Descriptions = new List<string>() { "유령 없음", "더 이상의 초자연적 현상은 없습니다", "고스트버스터즈가 이 시설의 유령들을 소탕했습니다." };
             ColorHex = "#008000";
             Type = EventType.Remove;
 

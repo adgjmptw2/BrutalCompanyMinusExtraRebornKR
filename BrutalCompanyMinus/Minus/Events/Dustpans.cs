@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1; 
-            Descriptions = new List<string>() { "What even is this thing?", "Dust pans?" };
+            Descriptions = new List<string>() { "도대체 이건 뭐죠?", "쓰레받기인가요?" };
             ColorHex = "#FFA500";
             Type = EventType.Bad;
 

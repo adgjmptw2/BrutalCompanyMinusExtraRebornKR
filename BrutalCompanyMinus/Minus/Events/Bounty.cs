@@ -22,7 +22,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "The company is now paying for kills", "RIP AND TEAR", "Extermination time", "Monsters roam free, and the price on their heads is mediocre", "The hunt is on!" };
+            Descriptions = new List<string>() { "이제 기업이 처치 포상금을 지급합니다", "찢고 죽여라", "박멸의 시간", "괴물들이 활보하고 있으며, 그들의 현상금은 그저 그렇습니다", "사냥이 시작되었습니다!" };
             ColorHex = "#008000";
             Type = EventType.Good;
 

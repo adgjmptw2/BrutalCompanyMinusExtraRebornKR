@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Moving Landmines!!", "Facility hoovers", "Weapons of war", "These things are against the Geneva convention" };
+            Descriptions = new List<string>() { "움직이는 지뢰!!", "시설용 진공청소기", "전쟁 병기", "이것들은 제네바 협약 위반입니다" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;//2
-            Descriptions = new List<string>() { "Trash", "GarbageLid... lot of them" };
+            Descriptions = new List<string>() { "쓰레기", "쓰레기통 뚜껑... 정말 많네요" };
             ColorHex = "#e84343";
             Type = EventType.Neutral;
 

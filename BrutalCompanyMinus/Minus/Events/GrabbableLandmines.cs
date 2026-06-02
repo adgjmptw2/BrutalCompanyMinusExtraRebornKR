@@ -22,7 +22,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Some mines have turned into scrap...", "This was a wonderful idea", "Beep, Beep, Beep.", "You can now sell some of the landmines." };
+            Descriptions = new List<string>() { "지뢰 몇 개가 고철로 변했습니다...", "이건 정말 멋진 생각이었어요", "삐, 삐, 삐.", "이제 지뢰 중 일부를 팔 수 있습니다." };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

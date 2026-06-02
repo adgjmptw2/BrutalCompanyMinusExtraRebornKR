@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Dont look at them...", "Glowy eyes", "My favourite", "I hope you don't have friends when dealing with these" };
+            Descriptions = new List<string>() { "그들을 쳐다보지 마세요...", "무언가 나를 노려보고 있다", "나의 최애야", "지금 상황에 친구가 없기를 바랍니다." };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

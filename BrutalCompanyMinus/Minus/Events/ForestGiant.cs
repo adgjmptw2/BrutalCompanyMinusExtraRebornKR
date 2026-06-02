@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Eddie hall in the facility?", "Why not", "You hearing stomping inside the facility." };
+            Descriptions = new List<string>() { "시설 안에 최홍만이 있나요?", "안 될 거 없죠", "시설 내부에서 쿵쾅거리는 발소리가 들립니다." };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

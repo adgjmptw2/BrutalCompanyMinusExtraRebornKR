@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "You will get launched", "YEET", "Do you like to go Yeet" };
+            Descriptions = new List<string>() { "당신은 곧 사출될 예정입니다", "슈웅~ (YEET!)", "날아가는 거 좋아하세요? '공중 부양' 한 번 가시죠!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

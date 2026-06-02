@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Everything is golden!!", "Gold rush!", "A stash of gold!" };
+            Descriptions = new List<string>() { "모든 게 황금빛입니다!!", "골드 러시!", "숨겨진 황금 더미!" };
             ColorHex = "#00FF00";
             Type = EventType.VeryGood;
 

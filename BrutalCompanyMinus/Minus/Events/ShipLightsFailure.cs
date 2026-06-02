@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3; //7
-            Descriptions = new List<string>() { "Lighting system: OFFLINE", "The lights are busted!" };
+            Descriptions = new List<string>() { "조명 시스템: 오프라인", "조명이 박살 났습니다!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
         }

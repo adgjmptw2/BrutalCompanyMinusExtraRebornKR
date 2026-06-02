@@ -21,7 +21,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Kitties", "They exist for hunting you..", "Puma.. and we don't mean the brand." };
+            Descriptions = new List<string>() { "고양이들", "걔네들은 널 사냥하려고 존재하는 거야...", "퓨마... 브랜드 퓨마 말고." };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
             MoonMode = true;

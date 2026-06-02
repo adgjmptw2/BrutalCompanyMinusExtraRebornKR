@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "The moon falls", "It has a face on it", "Time is ticking" };
+            Descriptions = new List<string>() { "달이 추락합니다", "달에 얼굴이 그려져 있네요", "시간이 얼마 남지 않았습니다" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

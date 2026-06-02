@@ -16,7 +16,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 4;
-            Descriptions = new List<string>() { "Terminal Error", "Terminal console: OFFLINE" };
+            Descriptions = new List<string>() { "터미널 치명적 오류", "터미널 콘솔: 오프라인" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
         }

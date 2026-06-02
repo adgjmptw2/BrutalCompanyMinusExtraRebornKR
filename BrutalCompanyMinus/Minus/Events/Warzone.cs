@@ -24,7 +24,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Landmines? Turrets? all of it", "DDay is here", "Enjoy getting bombarded" };
+            Descriptions = new List<string>() { "지뢰? 포탑? 전부 다 있습니다", "디데이(D-Day)가 왔군요", "폭격 세례를 즐겨보시길" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

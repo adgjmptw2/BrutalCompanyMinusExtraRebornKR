@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "No lizards", "No immortal things for whatever reason", "No gas gas gas" };
+            Descriptions = new List<string>() { "도마뱀 없음", "이유는 모르겠지만 불사신도 없음", "가스 가스 가스 금지" };
             ColorHex = "#008000";
             Type = EventType.Remove;
             EventsToRemove = new List<string>() { nameof(Lizard) };

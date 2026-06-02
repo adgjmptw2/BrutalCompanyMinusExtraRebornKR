@@ -16,7 +16,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "The weather is very violent", "High winds and heavy rain", "This is not a fun time for the outdoors" };
+            Descriptions = new List<string>() { "날씨가 매우 험악합니다", "강풍과 폭우", "야외 활동을 즐기기엔 최악의 상황이네요" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

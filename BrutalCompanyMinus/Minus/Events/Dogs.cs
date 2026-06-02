@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "They can hear you", "Who's a good boy?", "They aren't good boys ;(", "The ground trembles under their paws", "Bring out your whoopie cushions!", "Make sure to close the door behind you" };
+            Descriptions = new List<string>() { "그들이 당신의 소리를 들을 수 있습니다", "누가 착한 아이지?", "착한 애들이 아니네요 ;(", "그들의 발바닥 아래서 땅이 진동합니다", "방귀 방석을 꺼내세요!", "뒤에 있는 문을 꼭 닫으십시오" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

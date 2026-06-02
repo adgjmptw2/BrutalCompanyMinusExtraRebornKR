@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Theres too many of them...", "You better be ready for this", "Which ones explode?", "A buzzing doom approaches", "Best with served with yippeeeee mod" };
+            Descriptions = new List<string>() { "그들의 수가 너무 많습니다...", "단단히 준비하는 게 좋을 겁니다", "어떤 녀석이 터지는 거죠?", "윙윙거리는 파멸이 다가옵니다", "yippeeeee 모드와 함께하면 더욱 좋습니다" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

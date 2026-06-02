@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "SCP682!", "The Hard-to-Destroy Reptile", "Avoid the reptile!" };
+            Descriptions = new List<string>() { "SCP682!", "죽지 않는 도마뱀", "도마뱀을 피하세요!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

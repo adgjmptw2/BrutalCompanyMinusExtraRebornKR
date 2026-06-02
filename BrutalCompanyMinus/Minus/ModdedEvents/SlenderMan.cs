@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Childhood creepypasta", "Dont let it get close...", "You feel paranoid" };
+            Descriptions = new List<string>() { "추억 속의 불쾌한 골짜기", "가까이 오게 두지 마세요... 제발요", "기분 탓일까요? 아니면 당신 뒤일까요?" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

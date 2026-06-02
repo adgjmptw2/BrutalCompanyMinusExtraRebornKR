@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "BEES!!", "BZZZZZ", "Nature's architects are at work.", "Balls", "NOT THE BEES!" };
+            Descriptions = new List<string>() { "벌이다!!", "위이잉", "자연의 건축가들이 열일 중입니다.", "둥근 것들", "벌은 안 돼!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

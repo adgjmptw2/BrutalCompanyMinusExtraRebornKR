@@ -21,7 +21,7 @@ namespace BrutalCompanyMinus.Minus.Events
             EventsToRemove = new List<string>() { nameof(Hell), nameof(Worms) };
 
             Weight = 1;
-            Descriptions = new List<string>() { "No worms", "No leviathans", "The earth is safe", "No delicacy" };
+            Descriptions = new List<string>() { "바닥벌레 없음", "레비아탄 없음", "대지는 안전합니다", "별미 없음" };
             ColorHex = "#008000";
             Type = EventType.Remove;
         }

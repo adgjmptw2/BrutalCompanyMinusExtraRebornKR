@@ -14,7 +14,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "You should be able to leave earlier than expected", "Imagine less trips", "I can work with this!" };
+            Descriptions = new List<string>() { "예상보다 일찍 퇴근할 수 있겠는데요", "왔다 갔다 덜 해도 되겠어요", "이 정도면 해볼 만하죠!" };
             ColorHex = "#008000";
             Type = EventType.Good;
             EventsToRemove = new List<string>() { nameof(HotBarHassle) };

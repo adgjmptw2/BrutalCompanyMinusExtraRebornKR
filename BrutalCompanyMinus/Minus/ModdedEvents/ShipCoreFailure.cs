@@ -13,7 +13,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Ship core failure!", "This is bad, all ship systems are offline" };
+            Descriptions = new List<string>() { "함선 코어 고장!", "큰일 났습니다, 모든 함선 시스템이 오프라인입니다" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

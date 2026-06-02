@@ -25,7 +25,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "He's back, and he's not happy." };
+            Descriptions = new List<string>() { "그가 돌아왔고, 기분이 썩 좋지는 않네요.." };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

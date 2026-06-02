@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Goo!", "The goo is coming for you!" };
+            Descriptions = new List<string>() { "끈적끈적 액체!", "끈적끈적한 액체가 당신을 향해 다가오고 있어요!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
             isBetaEvent = true;

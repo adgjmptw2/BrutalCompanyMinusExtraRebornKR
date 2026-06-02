@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "The walker is inside the facility!", "I hope you bring an extra pair of undies", "You feel like you are going insane" };
+            Descriptions = new List<string>() { "워커가 시설 내부에 진입했습니다!", "여분 속옷 챙겨오셨길 바랍니다. 지릴 수도 있거든요.", "정신이 나갈 것 같습니다... 아니면 이미 나갔거나요." };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

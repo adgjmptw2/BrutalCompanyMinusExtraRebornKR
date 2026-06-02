@@ -23,7 +23,7 @@ namespace BrutalCompanyMinus.Minus.Events
             EventsToRemove = new List<string>() { nameof(Hell), nameof(Peepers) };
 
             Weight = 1;
-            Descriptions = new List<string>() { "No weights", "The air feels light." };
+            Descriptions = new List<string>() { "무게감 없음", "공기가 가볍게 느껴집니다." };
             ColorHex = "#008000";
             Type = EventType.Remove;
         }

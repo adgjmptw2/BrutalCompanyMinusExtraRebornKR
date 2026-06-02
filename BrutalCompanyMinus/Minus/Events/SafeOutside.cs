@@ -23,7 +23,7 @@ namespace BrutalCompanyMinus.Minus.Events
             EventsToRemove = new List<string>() { nameof(NoOldBird), nameof(NoDogs), nameof(NoGiants), nameof(NoBaboons), nameof(NoWorm), nameof(NoMasks), nameof(NoBirds), nameof(Warzone), nameof(OutsideTurrets), nameof(OutsideLandmines), nameof(Masked), nameof(AllWeather) };
 
             Weight = 1;
-            Descriptions = new List<string>() { "Outside is safe!", "It's unusally quiet outside", "You might find bees outside but that is about it", "You can hear your own footstep's echo as you walk outside." };
+            Descriptions = new List<string>() { "밖은 안전합니다!", "바깥이 이상할 정도로 조용하네요", "벌이 좀 있을 수도 있지만 그게 전부일 겁니다", "밖을 걷다 보면 자신의 발소리가 메아리치는 게 들릴 정도입니다." };
             ColorHex = "#00FF00";
             Type = EventType.VeryGood;
         }

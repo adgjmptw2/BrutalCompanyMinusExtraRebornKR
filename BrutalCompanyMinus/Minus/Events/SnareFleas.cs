@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Ceiling campers!", "A delicacy", "The finest of creatures", "Look up", "Look down" };
+            Descriptions = new List<string>() { "천장에 캠핑족이 있군요!", "최고의 별미", "가장 기품 있는 생명체", "위만 보세요", "아래만 보세요" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

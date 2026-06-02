@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3; //3
-            Descriptions = new List<string>() { "All the sussy paintings", "69" };
+            Descriptions = new List<string>() { "수상쩍은 그림들뿐이네요", "69 (어머나)" };
             ColorHex = "#FFA500";
             Type = EventType.Neutral;
             Aliases = new List<string>() { "Paintings", "Painting" };

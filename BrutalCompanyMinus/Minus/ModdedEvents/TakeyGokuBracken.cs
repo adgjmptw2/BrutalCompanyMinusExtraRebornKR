@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Wait...thats not a plushie", "Thats scary", "TakeyGoku" };
+            Descriptions = new List<string>() { "잠깐... 이거 인형 아니었어?", "진짜 소름 돋네", "타키고쿠(TakeyGoku): 도망쳐, 손오공이 오고 있어!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

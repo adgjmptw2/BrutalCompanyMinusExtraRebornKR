@@ -25,7 +25,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Absolute Hell", "Berserk... and I dont mean the anime.", "Don't get in line of sight", "You will have a VERY bad day!", "Loudness incoming!" };
+            Descriptions = new List<string>() { "완전한 지옥", "광기... 그 애니메이션 말고요.", "시야에 들지 마십시오", "아주 끔찍한 하루가 될 겁니다!", "엄청난 소음 주의!" };
             ColorHex = "#280000";
             Type = EventType.VeryBad;
             EventsToSpawnWith = new List<string>() { nameof(Turrets) };

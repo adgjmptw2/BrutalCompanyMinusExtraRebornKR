@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Bug Breach Detected", "The ultimate fine dining experience", "Dont make out with those things" };
+            Descriptions = new List<string>() { "벌레 침입 감지", "궁극의 파인 다이닝 경험", "그것들이랑 입 맞추지 마세요" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "No miniguns at all for today", "Unloaded Hangar corp. has removed all slayers in this area!" };
+            Descriptions = new List<string>() { "오늘은 미니건이 한 대도 없습니다", "언로디드 행거 코퍼레이션이 이 구역의 모든 슬레이어를 제거했습니다!" };
             ColorHex = "#008000";
             Type = EventType.Remove;
 

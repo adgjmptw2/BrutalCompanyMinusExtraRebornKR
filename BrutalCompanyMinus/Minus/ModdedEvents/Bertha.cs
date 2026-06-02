@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "What if you touch it?", "Squarepants", "Say goodbye to your quota", "It will go boom" };
+            Descriptions = new List<string>() { "건드리면 어떻게 될까요?", "네모바지", "할당량에 작별 인사를 하세요", "쾅 하고 터질 겁니다" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

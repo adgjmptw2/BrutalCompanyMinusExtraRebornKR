@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Funny Faces, Everywhere", "As long as you dont put it on", "Silly masks, guaranteed comedic fun", "Just dont become of one of them with this..." };
+            Descriptions = new List<string>() { "웃긴 얼굴들이 사방에 있네요", "쓰지만 않는다면 괜찮아요", "익살스러운 가면들, 코믹한 재미 보장", "이걸로 '그들' 중 하나가 되지만 마세요..." };
             ColorHex = "#FFFFFF";
             Type = EventType.Neutral;
 

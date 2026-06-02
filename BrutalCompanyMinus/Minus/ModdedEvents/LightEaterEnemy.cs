@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Do you favor light?", "Imagine if you dont have light" };
+            Descriptions = new List<string>() { "빛을 선호하시나요?", "빛이 없다고 상상해 보세요" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

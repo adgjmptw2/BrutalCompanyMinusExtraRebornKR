@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "I rather not anger them if I were you.", "Did you know that hoarding bugs have organs? Well these ones have bombs...", "I hope you meet an army of them.", "An invasion of self-destructing pests inside the facility." };
+            Descriptions = new List<string>() { "내가 당신이라면 굳이 쟤들을 화나게 하지 않을 거예요.", "비축 벌레한테 장기가 있다는 사실을 아시나요? 글쎄, 얘들은 장기 대신 '폭탄'을 갖고 있네요...", "이 녀석들의 군단과 마주치길 기원합니다.", "자폭하는 해충들이 시설 내부를 침공했습니다." };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

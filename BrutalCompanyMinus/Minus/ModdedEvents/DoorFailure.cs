@@ -16,7 +16,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 4; //7
-            Descriptions = new List<string>() { "Door system: ERROR", "Door malfunction" };
+            Descriptions = new List<string>() { "출입문 시스템: 오류", "출입문 오작동" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

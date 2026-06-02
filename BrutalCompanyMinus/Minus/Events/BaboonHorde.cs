@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "You feel outnumbered", "Keep the doors closed.", "Hear their calls, see their shadows cover the land.", "Why are they also inside??" };
+            Descriptions = new List<string>() { "수적으로 열세인 것 같습니다", "문을 닫아 두십시오.", "그들의 부름을 듣고, 땅을 뒤덮는 그림자를 보십시오.", "왜 안쪽에도 그것들이 있는 거죠??" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

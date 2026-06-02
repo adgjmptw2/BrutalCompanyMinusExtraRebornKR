@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "The nut slayer is inside the facility...", "Enjoy", "I should make this thing play doom music.", "Even god wont save you from him." };
+            Descriptions = new List<string>() { "호두 살인마가 시설 내부에 있습니다...", "즐거운 시간 되시길", "이 녀석한테 둠(DOOM) 브금을 깔아줘야겠는데.", "신조차 그로부터 당신을 구하지 못할 겁니다." };
             ColorHex = "#280000";
             Type = EventType.VeryBad;
 

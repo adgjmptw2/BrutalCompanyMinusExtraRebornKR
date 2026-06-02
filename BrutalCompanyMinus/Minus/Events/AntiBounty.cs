@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "The Company is issuing a fine for disturbing the wildlife", "Pacifist Run", "You will literally pay for kills..." };
+            Descriptions = new List<string>() { "회사는 야생 동물 보호 구역을 훼손한 것에 대해 벌금을 부과합니다", "평화주의자 루트", "살생의 대가를 치르게 될 것입니다..." };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

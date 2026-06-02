@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "They Come In Numbers", "Big smiles", "They are super cute.. or not?!" };
+            Descriptions = new List<string>() { "그들은 떼로 몰려옵니다", "커다란 미소", "정말 귀엽네요.. 아님 말고?!" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

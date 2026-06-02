@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3; //2
-            Descriptions = new List<string>() { "Welcome To The Factory!", "Its all metallic??" };
+            Descriptions = new List<string>() { "공장에 오신 것을 환영합니다!", "온통 금속뿐인가요??" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

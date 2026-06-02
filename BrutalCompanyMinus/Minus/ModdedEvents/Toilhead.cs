@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "These things are against the geneva convention.", "Toilheads!", "The coilheads have gotten a software upgrade.", "All the heads!", "You downloaded this mod, not me..." };
+            Descriptions = new List<string>() { "이건 제네바 협약 위반 수준인데요?", "코일헤드 군단!", "코일헤드가 소프트웨어 업데이트를 마쳤습니다. (더 빨라졌단 소리죠)", "머리, 머리, 온통 머리뿐이야!", "이 모드 깔라고 칼 들고 협박 안 했습니다?" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

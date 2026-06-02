@@ -30,7 +30,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Faulty Traps", "The traps are not an issue today", "If you have traps, do not worry today!" };
+            Descriptions = new List<string>() { "고장 난 함정들", "오늘은 함정이 전혀 문제가 되지 않습니다", "함정이 있더라도 오늘은 걱정 마세요!" };
             ColorHex = "#00FF00";
             Type = EventType.VeryGood;
 

@@ -23,7 +23,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "It's like a dungeon!", "You need to unlock every door", "Let's hope the keys spawn" };
+            Descriptions = new List<string>() { "마치 던전 같네요!", "모든 문을 열어야해요", "열쇠들이 스폰되길 빌어요.." };
             ColorHex = "#8B008B";
             Type = EventType.Insane;
             isSpecialEvent = true;

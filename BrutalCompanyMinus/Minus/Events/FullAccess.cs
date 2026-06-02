@@ -25,7 +25,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Everything is open!", "Someone left the door's open", "Every burgler's dream", "Experience true exploration", "You wont need be needing keys here" };
+            Descriptions = new List<string>() { "모든 것이 열려 있습니다!", "누군가 문을 열어두었네요", "모든 도둑들의 꿈", "진정한 탐험을 경험하십시오", "여기선 열쇠가 필요 없을 겁니다" };
             ColorHex = "#008000";
             Type = EventType.Good;
 

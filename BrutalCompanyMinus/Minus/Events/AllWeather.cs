@@ -22,7 +22,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "God hates you", "Chaos reigns as the skies unleash every weather pattern known to man.", "An umbrella might help here", "I hope you suffer here" };
+            Descriptions = new List<string>() { "신이 당신을 증오합니다.", "하늘이 인간에게 알려진 모든 기상 현상을 쏟아부으며 혼돈이 군림합니다.", "우산이 도움이 될지도 모르겠네요", "당신이 여기서 고통받길 바랍니다" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

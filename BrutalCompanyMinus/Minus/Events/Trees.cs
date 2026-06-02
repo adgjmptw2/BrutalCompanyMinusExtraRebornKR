@@ -21,7 +21,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 4;
-            Descriptions = new List<string>() { "Trees", "More trees", "The trees look like trees" };
+            Descriptions = new List<string>() { "나무들", "더 많은 나무들", "나무가 나무처럼 생겼군요" };
             ColorHex = "#FFFFFF";
             Type = EventType.Neutral;
 

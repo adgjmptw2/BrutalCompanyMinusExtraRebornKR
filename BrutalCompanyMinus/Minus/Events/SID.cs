@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Single Item Day", "Very Special Day" };
+            Descriptions = new List<string>() { "하나뿐인 아이템 날", "매우 특별한 하루" };
             ColorHex = "#00FFFF";
             Type = EventType.Rare;
             isBetaEvent = true;

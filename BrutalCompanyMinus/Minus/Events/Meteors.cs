@@ -22,7 +22,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Maybe looking up isnt such a bad idea", "Meteors, seek cover!", "Falling rocks... great" };
+            Descriptions = new List<string>() { "가끔은 하늘을 올려다보는 것도 나쁘지 않겠네요", "유성우다, 대피하세요!", "낙석이라니... 참 잘 돌아가네요" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

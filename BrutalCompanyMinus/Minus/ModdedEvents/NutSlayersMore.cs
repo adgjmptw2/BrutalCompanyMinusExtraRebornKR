@@ -13,7 +13,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Warning: Multiple NutSlayers detected in the area!", "Oh...Oh my god..."  };
+            Descriptions = new List<string>() { "Warning: 이 지역에서 여러 명의 빨간 병정이 발견되었습니다!", "오.. 세상에 맙소사..."  };
             ColorHex = "#000000";
             Type = EventType.Insane;
 

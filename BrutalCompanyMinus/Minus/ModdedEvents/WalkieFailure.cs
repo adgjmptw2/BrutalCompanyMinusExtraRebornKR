@@ -16,7 +16,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 4;
-            Descriptions = new List<string>() { "Radio system: OFFLINE", "Walkies are unusable" };
+            Descriptions = new List<string>() { "무전 시스템: 오프라인(OFFLINE)", "무전기가 먹통입니다. 이제 비명도 안 들리겠네요." };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
         }

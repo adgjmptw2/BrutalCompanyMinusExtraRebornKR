@@ -16,7 +16,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 4;
-            Descriptions = new List<string>() { "Charging station: OFFLINE", "Dont waste your batteries" };
+            Descriptions = new List<string>() { "충전 스테이션: 오프라인", "배터리를 낭비하지 마세요" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

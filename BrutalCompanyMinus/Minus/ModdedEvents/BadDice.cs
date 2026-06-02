@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Bad Dice!!!!", "You wont make it big today", "Horrible luck is bestowed upon you!" };
+            Descriptions = new List<string>() { "최악의 주사위!!!!", "오늘 대박 터지긴 글렀군요", "끔찍한 불운이 당신에게 내려졌습니다!" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

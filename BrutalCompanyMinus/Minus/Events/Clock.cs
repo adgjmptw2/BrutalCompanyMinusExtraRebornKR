@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;//3
-            Descriptions = new List<string>() { "Clock", "Your time is running out" };
+            Descriptions = new List<string>() { "시계", "당신에게 남은 시간이 얼마 없습니다" };
             ColorHex = "#FFFFFF";
             Type = EventType.Neutral;
 

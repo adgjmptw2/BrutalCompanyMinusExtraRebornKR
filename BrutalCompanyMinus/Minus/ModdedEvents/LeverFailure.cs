@@ -16,7 +16,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 4;
-            Descriptions = new List<string>() { "Ship hydraulics: OFFLINE", "Ship lever malfunction" };
+            Descriptions = new List<string>() { "함선 유압 장치: 오프라인", "함선 레버 오작동" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
         }

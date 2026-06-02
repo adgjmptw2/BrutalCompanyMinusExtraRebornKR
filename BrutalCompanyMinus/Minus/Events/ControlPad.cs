@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;//2
-            Descriptions = new List<string>() { "Control pads", "Its like a remote, but more advanced" };
+            Descriptions = new List<string>() { "제어 패드", "리모컨과 비슷하지만, 훨씬 더 발전된 형태입니다" };
             ColorHex = "#e84343";
             Type = EventType.Neutral;
 

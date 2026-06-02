@@ -16,7 +16,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "You will return changed" };
+            Descriptions = new List<string>() { "당신은 변한 모습으로 돌아오게 될 겁니다" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

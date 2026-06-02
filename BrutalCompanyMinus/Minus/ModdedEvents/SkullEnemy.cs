@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "The skull chases you...", "Do what you will, but it follows..." };
+            Descriptions = new List<string>() { "해골물이 당신을 배달하러 갑니다...", "발버둥 쳐보세요, 어차피 스토커는 포기를 모르니까요." };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

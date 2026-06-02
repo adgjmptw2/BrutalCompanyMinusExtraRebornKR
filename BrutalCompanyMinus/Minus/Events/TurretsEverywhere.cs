@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2; //2
-            Descriptions = new List<string>() { "Unsafe outside", "Outside is nothing but turrets" };
+            Descriptions = new List<string>() { "외부가 위험합니다", "밖은 온통 포탑뿐입니다" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

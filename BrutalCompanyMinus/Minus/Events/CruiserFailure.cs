@@ -21,7 +21,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "You should have got that extended warranty", "CRUISER SYSTEM FAILURE", "The cruiser has broken down", "Vehicles are not reliable today!", "Your ignition subscription expired", "We are here for your extended warranty" };
+            Descriptions = new List<string>() { "연장 보증에 가입하셨어야죠", "크루저 시스템 오류", "크루저가 고장 났습니다", "요즘 탈것들은 믿을 게 못 되네요!", "시동 구독 서비스가 만료되었습니다", "연장 보증 상담을 위해 방문했습니다" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
         }

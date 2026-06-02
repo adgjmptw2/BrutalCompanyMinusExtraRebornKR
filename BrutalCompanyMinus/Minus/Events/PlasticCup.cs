@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;//3
-            Descriptions = new List<string>() { "Cups... nothing more", "Plastic cups" };
+            Descriptions = new List<string>() { "컵들... 그게 전부입니다", "플라스틱 컵들" };
             ColorHex = "#FFFFFF";
             Type = EventType.Neutral;
 

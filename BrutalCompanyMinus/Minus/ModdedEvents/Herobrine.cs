@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Herobrine has been removed from the game.", "What is that...", "The apparition is here to take your soul." };
+            Descriptions = new List<string>() { "히로빈이 게임에서 제거되었습니다.", "방금 저건 뭐였지...", "영혼을 거두러 유령이 나타났습니다." };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

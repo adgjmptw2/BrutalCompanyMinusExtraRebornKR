@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Hope you like miniguns, because they are everywhere", "MantiSlayers and ToilSlayers.... good luck!" };
+            Descriptions = new List<string>() { "미니건 좋아하시길 바랍니다, 사방에 깔렸거든요", "맨티슬레이어와 토일슬레이어들.... 행운을 빕니다!" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Dice!!!!", "Did you know that 90% of gamblers quit just before they hit big?", "50/50", "Questionable luck" };
+            Descriptions = new List<string>() { "주사위!!!!", "도박꾼의 90%가 대박 터지기 직전에 그만둔다는 사실을 알고 계셨나요?", "50 대 50", "의심스러운 운" };
             ColorHex = "#008000";
             Type = EventType.Good;
 

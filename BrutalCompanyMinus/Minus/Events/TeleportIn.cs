@@ -29,7 +29,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Forced Entry", "Hope you find your way back...", "Hope you're not in a trapped room...", "Imagine getting stuck..." };
+            Descriptions = new List<string>() { "강제 진입", "돌아오는 길을 찾길 바랍니다...", "갇힌 방에 계신 게 아니길...", "어디 갇혔다고 상상해 보세요..." };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

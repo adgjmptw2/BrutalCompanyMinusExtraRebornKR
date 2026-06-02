@@ -16,7 +16,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Door control circuit: FAILURE", "Door control circuit malfunction" };
+            Descriptions = new List<string>() { "문 제어 회로: 고장", "문 제어 회로 오작동" };
             ColorHex = "#FF0000";
             Type = EventType.VeryBad;
 

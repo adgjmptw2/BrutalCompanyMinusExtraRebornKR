@@ -21,7 +21,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "The entrance is locked", "The entrance is blocked", "Time for the fire exit" };
+            Descriptions = new List<string>() { "정문이 잠겼습니다", "입구가 막혔습니다", "비상구로 갈 시간이네요" };
             ColorHex = "#000000";
             Type = EventType.VeryBad;
             isSpecialEvent = true;

@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Turrets!!", "Home defense systems", "Panic and scream", "+Turrets" };
+            Descriptions = new List<string>() { "포탑이다!!", "집 방범 시스템", "당황해서 비명 지르기", "추가 터렛" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

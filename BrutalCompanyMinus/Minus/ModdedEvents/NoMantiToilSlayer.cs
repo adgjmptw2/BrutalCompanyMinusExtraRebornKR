@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "No flying Miniguns", "MantiSlayers not permited in this area", "The Manticoils cant hurt you today" };
+            Descriptions = new List<string>() { "날아다니는 미니건 없음", "맨티슬레이어 출입 금지 구역", "오늘은 맨티코일이 당신을 해칠 수 없습니다" };
             ColorHex = "#008000";
             Type = EventType.Remove;
 

@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Haircut time", "The Barber called!", "You are due for a trim" };
+            Descriptions = new List<string>() { "이발할 시간입니다", "이발사가 불렀어요!", "머리를 다듬을 때가 됐군요" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

@@ -23,7 +23,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Way behind schedule.", "Quitting Time!!", "We should probably leave!" };
+            Descriptions = new List<string>() { "예정보다 한참 늦었습니다.", "퇴근 시간!!", "이제 정말 떠나야 할 것 같군요!" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Its gonna be a full house", "All the big ones came out..", "Which one will you see?" };
+            Descriptions = new List<string>() { "빈자리 없이 꽉 찰 예정입니다", "거물들이 전부 쏟아져 나왔습니다..", "당신은 누굴 보게 될까요?" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

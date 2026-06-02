@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "God would like to speak with you...", "NINE. EIGHTEEN. ONE. CHILD. SEVENTEEN. REMOVE. VILE." };
+            Descriptions = new List<string>() { "신(God)께서 면담을 신청하셨습니다...", "9. 18. 1. 아이. 17. 제거. 불결함. (지직...)" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

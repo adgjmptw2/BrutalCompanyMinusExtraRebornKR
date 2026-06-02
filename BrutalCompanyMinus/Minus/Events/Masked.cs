@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Friends!!", "Say hi to your new friends", "Lovely bunch of lads", "You might have trust issues after this", "Who's this new guy???" };
+            Descriptions = new List<string>() { "친구들!!", "새로운 친구들에게 인사하세요", "참 사랑스러운 녀석들이네요", "이 일이 끝나면 불신지옥에 빠질지도 모릅니다", "이 신입은 누구죠???" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

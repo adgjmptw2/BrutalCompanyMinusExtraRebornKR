@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "The ship has arrived a little early.", "Warp drive activated!", "The early bird catches the worm." };
+            Descriptions = new List<string>() { "함선이 조금 일찍 도착했습니다.", "워프 드라이브 가동!", "일찍 일어나는 새가 벌레를 잡는 법이죠." };
             ColorHex = "#008000";
             Type = EventType.Good;
 

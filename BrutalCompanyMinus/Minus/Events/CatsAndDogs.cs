@@ -25,7 +25,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Who let the Dogs (And Cats) Out?", "It's raining Cats And Dogs", "It's raining Dogs And Cats" };
+            Descriptions = new List<string>() { "누가 개(그리고 고양이)들을 풀어줬어?", "비가 억수같이 쏟아지고 있어요", "개와 고양이가 비처럼 쏟아진다" };
             ColorHex = "#000000";
             Type = EventType.VeryBad;
             isBetaEvent = true;

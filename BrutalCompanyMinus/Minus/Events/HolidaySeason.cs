@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "It's holiday season", "All the holidays!", "Easter, Halloween and Christmas all in one day." };
+            Descriptions = new List<string>() { "연말연시 축제 분위기네요", "모든 명절이 모였습니다!", "부활절, 할로윈, 크리스마스가 하루에 다 들어있군요." };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

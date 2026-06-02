@@ -31,7 +31,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "I think the batteries leaked", "Who broke the flashlights?" };
+            Descriptions = new List<string>() { "배터리가 샌 것 같아요", "누가 손전등을 고장 냈나요?" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
         }

@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Yoshikage Kira", "All the little pieces", "Company has interesting tastes", "I hope these are not real" };
+            Descriptions = new List<string>() { "키라 요시카게", "자잘한 모든 조각들", "회사의 취향이 참 독특하군요", "이게 진짜가 아니길 바랍니다" };
             ColorHex = "#FFFFFF";
             Type = EventType.Neutral;
 

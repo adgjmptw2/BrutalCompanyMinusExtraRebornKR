@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Imagine this with water", "Spongebob", "Ball with spikes", "It could go boom" };
+            Descriptions = new List<string>() { "이게 물속에 있다고 상상해 보세요", "스폰지밥", "가시 돋친 공", "이건 쾅 하고 터질 수도 있어요" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

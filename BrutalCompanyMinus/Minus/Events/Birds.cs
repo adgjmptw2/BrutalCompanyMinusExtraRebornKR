@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 8;
-            Descriptions = new List<string>() { "Its bird migration season", "Birb", "Do these things have feathers?", "You can shoot these" };
+            Descriptions = new List<string>() { "철새 이동의 계절입니다", "새공주", "이것들에게 깃털이 있긴 한가요?", "이것들은 총으로 쏠 수 있습니다" };
             ColorHex = "#FFFFFF";
             Type = EventType.Neutral;
 

@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "The fiend is inside the facility", "Comes with jumpscares", "Dont flash it..." };
+            Descriptions = new List<string>() { "악마가 이미 시설 안에 침투했습니다", "주의: 심장 마비를 유발할 수 있음", "플래시 비추지 마세요... 자극해서 좋을 거 없거든요" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

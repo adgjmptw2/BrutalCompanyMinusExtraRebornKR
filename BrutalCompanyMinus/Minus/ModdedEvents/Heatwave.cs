@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "The temperature is rising!", "A heatwave is coming!", "It's getting hot in here!" };
+            Descriptions = new List<string>() { "온도가 상승하고 있습니다!", "폭염이 몰려옵니다!", "여기 점점 뜨거워지는데요!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

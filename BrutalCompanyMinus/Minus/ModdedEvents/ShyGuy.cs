@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Object Class: Euclid", "All personnel, proceed with caution.", "Look at it, I dare you..." };
+            Descriptions = new List<string>() { "등급: 유클리드(격리 불가)", "주의: 모든 인원은 알아서 생존하십시오.", "눈을 떼지 마세요. 물론 그러다 죽겠지만요..." };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

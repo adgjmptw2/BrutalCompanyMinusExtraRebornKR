@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;//3
-            Descriptions = new List<string>() { "Its football not soccer", "Balls... quite lot of them" };
+            Descriptions = new List<string>() { "이건 사커가 아니라 풋볼입니다", "공... 꽤 많네요" };
             ColorHex = "#e84343";
             Type = EventType.Neutral;
             Aliases = new List<string>() { "SoccerBall", "Soccer" };

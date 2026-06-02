@@ -909,7 +909,7 @@ namespace BrutalCompanyMinus.Minus
 
             if (Configuration.showEventsInChat.Value && !Configuration.DisplayUIAfterShipLeaves.Value)
             {
-                HUDManager.Instance.AddTextToChatOnServer("<color=#FFFFFF>Events:</color>");
+                HUDManager.Instance.AddTextToChatOnServer("<color=#FFFFFF>이벤트:</color>");
                 foreach (string eventDescription in currentEventDescriptions)
                 {
                     HUDManager.Instance.AddTextToChatOnServer(eventDescription);

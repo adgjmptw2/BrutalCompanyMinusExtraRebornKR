@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "They just want to touch you", "Do you want your head to explode?", "They just want to play with you", "A kingergarten of dead children" };
+            Descriptions = new List<string>() { "그저 당신을 만지고 싶을 뿐이에요", "머리가 터지고 싶나요?", "그저 당신과 놀고 싶을 뿐입니다", "죽은 아이들의 유치원" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

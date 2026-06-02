@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Bling Bling!", "It's just like robbing a bank", "I hope this is a sign of good luck", "Are you ready to gain an extra 300+ lbs" };
+            Descriptions = new List<string>() { "블링블링!", "마치 은행을 터는 것 같군요", "이게 행운의 징조이길 바랍니다", "몸무게가 300파운드 이상 늘어날 준비는 되셨나요?" };
             ColorHex = "#00FF00";
             Type = EventType.VeryGood;
 

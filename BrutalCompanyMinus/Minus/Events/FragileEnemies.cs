@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Enemies here are a little more fragile than usual.", "Should take 1 less bonk", "A mysterious ailment is making the enemies fragile..." };
+            Descriptions = new List<string>() { "이곳의 적들은 평소보다 조금 더 연약합니다.", "몽둥이질 한 번 정도는 덜 해도 되겠네요", "의문의 질병이 적들을 연약하게 만들고 있습니다..." };
             ColorHex = "#008000";
             Type = EventType.Good;
 

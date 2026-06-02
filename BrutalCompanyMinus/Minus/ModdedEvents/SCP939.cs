@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "SCP939...", "Are you ready for them?", "The facility could not contain them..." };
+            Descriptions = new List<string>() { "SCP939...", "그들을 맞이할 준비가 되셨나요?", "시설은 그들을 격리할 수 없었습니다..." };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

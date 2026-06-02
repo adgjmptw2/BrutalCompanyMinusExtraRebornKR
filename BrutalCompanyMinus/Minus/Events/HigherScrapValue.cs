@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Everything is worth slightly more!", "Premium scrap", "Gucci scrap" };
+            Descriptions = new List<string>() { "모든 것이 평소보다 조금 더 가치가 있습니다!", "프리미엄 고철", "명품 고철" };
             ColorHex = "#008000";
             Type = EventType.Good;
 

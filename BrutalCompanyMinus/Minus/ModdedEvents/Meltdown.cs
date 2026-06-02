@@ -25,7 +25,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Core Breach Detected", "Meltdown Imminent", "A tiny puff of smoke" };
+            Descriptions = new List<string>() { "코어 붕괴 감지", "멜트다운 임박", "작고 귀여운 연기 한 줄기" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

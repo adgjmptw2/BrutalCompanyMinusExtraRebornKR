@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Rolls of low grade paper", "Toilet paper packages" };
+            Descriptions = new List<string>() { "저급 종이 뭉치들", "두루마리 휴지 묶음" };
             ColorHex = "#e84343";
             Type = EventType.Neutral;
 

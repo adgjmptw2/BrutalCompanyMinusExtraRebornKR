@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "MEOW!", "Aw, its a kitty cat", "They need your help", "Protect them from the dogs" };
+            Descriptions = new List<string>() { "야옹!", "어머, 귀여운 고양이잖아요", "도움이 필요해 보여요", "개들로부터 지켜주세요" };
             ColorHex = "#FFFFFF";
             Type = EventType.Neutral;
 

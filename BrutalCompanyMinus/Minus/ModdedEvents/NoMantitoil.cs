@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 5;
-            Descriptions = new List<string>() { "No flying turrets today", "You wont see any flying turrets today", "No air snipers", "NoMantiToils...phew..." };
+            Descriptions = new List<string>() { "오늘은 비행 터렛 없음", "오늘은 날아다니는 터렛을 볼 일 없을 겁니다", "공중 저격수 없음", "맨티토일 없음... 후우..." };
             ColorHex = "#008000";
             Type = EventType.Remove;
 

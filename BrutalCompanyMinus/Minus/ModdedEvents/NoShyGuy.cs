@@ -21,7 +21,7 @@ namespace BrutalCompanyMinus.Minus.Events
             EventsToRemove = new List<string>() { nameof(Hell), nameof(ShyGuy) };
 
             Weight = 1;
-            Descriptions = new List<string>() { "SCP-096 is contained.", "You can open your eyes" };
+            Descriptions = new List<string>() { "SCP-096 격리 완료.", "이제 눈을 뜨셔도 좋습니다" };
             ColorHex = "#008000";
             Type = EventType.Remove;
         }

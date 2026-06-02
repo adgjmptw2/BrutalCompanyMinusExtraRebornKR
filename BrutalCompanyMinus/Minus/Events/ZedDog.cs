@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;//3
-            Descriptions = new List<string>() { "Zed dog plushies", "Dogs... but harmless" };
+            Descriptions = new List<string>() { "눈 먼 개 봉제인형", "개들이긴 한데... 무해하네요" };
             ColorHex = "#008000";
             Type = EventType.Good;
 

@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "YARHAR", "Five nights...?", "It will be a nightmare time" };
+            Descriptions = new List<string>() { "야호~ 해적이다!", "다섯 밤...?", "악몽 같은 시간이 될 겁니다" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>(){  "Day of the Triffids", "Plants..", "The infection..." };
+            Descriptions = new List<string>() { "감염의 날", "식물들...", "감염..." };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

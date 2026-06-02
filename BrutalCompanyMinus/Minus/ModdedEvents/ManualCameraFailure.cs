@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 4;
-            Descriptions = new List<string>() { "Monitoring system: ERROR", "The screens are broken" };
+            Descriptions = new List<string>() { "모니터링 시스템: 오류", "화면이 파손되었습니다" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
         }

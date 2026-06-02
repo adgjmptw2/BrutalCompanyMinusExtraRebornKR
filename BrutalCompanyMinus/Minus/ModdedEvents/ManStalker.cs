@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "It stalks", "Hope you are not caught", "Avoid at all costs..." };
+            Descriptions = new List<string>() { "그것이 뒤를 쫓습니다", "붙잡히지 않기를 빌어야겠군요", "무슨 수를 써서라도 피하세요..." };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

@@ -28,7 +28,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Great reward, but at what cost...", "This is the worst event of them all", "You are going to need jesus for this one", "Before crushing the life out of you, I will show you why my power is utterly beyond question!" };
+            Descriptions = new List<string>() { "큰 보상이지만, 그 대가는 무엇일까...", "모든 것 중 최악이군요..", "이 일에는 예수님의 도움이 필요할 겁니다.", "네 목숨을 앗아가기 전에, 내 힘이 얼마나 대단한지 보여주지!" };
             ColorHex = "#8B008B";
             Type = EventType.Insane;
 

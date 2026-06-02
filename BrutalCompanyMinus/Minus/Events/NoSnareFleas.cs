@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "No Ceiling campers!", "Your head is safe, I hope...", "No fine dining" };
+            Descriptions = new List<string>() { "천장 캠핑족 금지!", "머리는 무사할 겁니다, 아마도...", "고급 식사 금지" };
             ColorHex = "#008000";
             Type = EventType.Remove;
 

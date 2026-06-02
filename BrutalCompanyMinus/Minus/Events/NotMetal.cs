@@ -26,7 +26,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Items are not affected by lightning", "Consider yourself blessed by the storm gods!" };
+            Descriptions = new List<string>() { "물건들이 번개의 영향을 받지 않습니다!", "폭풍의 신들에게 축복받았습니다!" };
             ColorHex = "#008000";
             Type = EventType.Good;
 

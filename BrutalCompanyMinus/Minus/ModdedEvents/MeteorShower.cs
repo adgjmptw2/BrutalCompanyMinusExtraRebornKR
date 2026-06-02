@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "A different kind of shower...", "More meteors?!", "What the.. Meteors..?" };
+            Descriptions = new List<string>() { "평소와는 다른 소나기...", "운석이 또?!", "세상에.. 운석이라니..?" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

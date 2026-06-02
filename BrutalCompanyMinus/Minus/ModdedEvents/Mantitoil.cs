@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Flying turrets!", "Did i just see a turret fly by?", "Air snipers", "MantiToils???" };
+            Descriptions = new List<string>() { "비행 터렛!", "방금 터렛이 날아가는 걸 본 건가요?", "공중 저격수", "맨티토일???" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

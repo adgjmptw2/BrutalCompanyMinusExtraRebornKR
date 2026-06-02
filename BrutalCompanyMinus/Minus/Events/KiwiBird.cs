@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Eggs for breakfast!", "Egging you on", "Is it worth it?", "Beware of the Giant Kiwi", "Whats that pecking noise?", "Its like a woodpecker but..." };
+            Descriptions = new List<string>() { "아침 식사로 계란은 어때요!", "살살 부추기는 중입니다", "그만한 가치가 있을까요?", "거대 키위를 조심하세요", "저 쪼아대는 소리는 뭐죠?", "딱따구리 같긴 한데..." };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
             isSpecialEvent = true;

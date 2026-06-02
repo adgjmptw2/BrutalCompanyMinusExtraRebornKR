@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Statues are on the move!", "The ancient guardians have awoken. Run.", "Prepare for a rocky reception" };
+            Descriptions = new List<string>() { "석상들이 움직입니다!", "고대의 수호자들이 깨어났습니다. 도망치세요.", "거친 환영을 준비하세요" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

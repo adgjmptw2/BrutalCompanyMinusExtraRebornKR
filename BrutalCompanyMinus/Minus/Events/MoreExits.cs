@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "More entrances!", "More exits!", "Where does this lead?" };
+            Descriptions = new List<string>() { "입구가 더 많아졌어요!", "출구가 더 많아졌어요!", "여긴 어디로 연결되는 거죠?" };
             ColorHex = "#008000";
             Type = EventType.Good;
 

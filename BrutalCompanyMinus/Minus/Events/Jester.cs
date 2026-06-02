@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "I want to go home", "Lovely...", "Freeee birdd" };
+            Descriptions = new List<string>() { "집에 가고 싶어요", "사랑스럽기도 해라...", "자유로운 영혼(Free Bird)!" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

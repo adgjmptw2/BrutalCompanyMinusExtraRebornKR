@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "It's very slow..", "Looks pretty innocent", "A moving thermonuclear bomb" };
+            Descriptions = new List<string>() { "정말 느립니다..", "꽤 순진해 보이는데요", "움직이는 수소폭탄" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Who put that thing in there??", "Mentally deranged toddlers", "Does the lighnting kill them?" };
+            Descriptions = new List<string>() { "누가 저딴 걸 저기다 뒀어??", "정신 나간 꼬마 녀석들", "번개 맞으면 쟤네도 죽나?" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

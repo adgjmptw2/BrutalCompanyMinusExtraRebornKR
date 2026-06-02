@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Bells.. but are they real?", "Do you trust it?", "Dont get pinched!" };
+            Descriptions = new List<string>() { "종소리들.. 그런데 진짜일까요?", "그걸 믿으시나요?", "집히지 않게 조심하세요!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

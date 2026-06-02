@@ -26,7 +26,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "MADE IN HEAVEN", "Time is very messed up!", "Look at the sky" };
+            Descriptions = new List<string>() { "메이드 인 헤븐", "시간이 완전히 엉망진창입니다!", "하늘을 좀 보세요" };
             ColorHex = "#CF9FFF";
             Type = EventType.Insane;
             isSpecialEvent = true;

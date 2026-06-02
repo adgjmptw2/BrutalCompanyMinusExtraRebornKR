@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "The company has ordered a big delivery on this planet.", "A Luxurious cargo descends.", "Corporate has sent you a massive package." };
+            Descriptions = new List<string>() { "회사가 이 위성에 대규모 배송을 보냈습니다.", "호화로운 배송품이 떨어집니다.", "회사에서 엄청 큰 소포를 보냈어요." };
             ColorHex = "#00FF00";
             Type = EventType.VeryGood;
 

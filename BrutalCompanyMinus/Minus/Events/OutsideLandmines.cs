@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "There are landmines, Outside.", "This facility also has setup its own booby traps outside", "Watch your step... but outside", "Step outside and meet your doom!" };
+            Descriptions = new List<string>() { "외부에 지뢰가 매설되어 있습니다.", "이 시설은 건물 밖에도 자체적인 부비트랩을 설치해 뒀군요.", "발밑 조심하세요... 밖에서도 말이죠", "밖으로 발을 내딛는 순간, 파멸을 맞이할 겁니다!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

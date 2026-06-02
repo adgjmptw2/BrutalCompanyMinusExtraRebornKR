@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "The company has decided to give you a present.", "Small shipment for small jobs", "Congratz, you have been awarded." };
+            Descriptions = new List<string>() { "회사가 당신에게 선물을 주기로 결정했습니다.", "소소한 업무를 위한 소소한 보급품", "축하합니다, 보상이 지급되었습니다." };
             ColorHex = "#008000";
             Type = EventType.Good;
 

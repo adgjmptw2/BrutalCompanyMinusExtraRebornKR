@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Egg Hunt", "Don't throw it too close", "Can you find them all?" };
+            Descriptions = new List<string>() { "에그 헌트", "너무 가까이서 던지지 마세요", "전부 다 찾을 수 있을까요?" };
             ColorHex = "#FFA500";
             Type = EventType.Neutral;
 

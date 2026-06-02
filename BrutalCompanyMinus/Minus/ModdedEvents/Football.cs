@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Simon says...", "Just do as she says", "Football!" };
+            Descriptions = new List<string>() { "Simon says...", "그냥 그녀가 시키는 대로 하세요", "축구!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Shockwave Drones", "Stay away", "Drones" };
+            Descriptions = new List<string>() { "충격파 드론", "멀리 떨어지세요", "드론" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

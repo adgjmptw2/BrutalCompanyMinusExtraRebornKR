@@ -21,7 +21,7 @@ namespace BrutalCompanyMinus.Minus.Events
             EventsToRemove = new List<string>() { nameof(Hell), nameof(Lockers) };
 
             Weight = 1;
-            Descriptions = new List<string>() { "No iron maidens", "No lockers", "Your chances of surviving has slightly increased." };
+            Descriptions = new List<string>() { "아이언 메이든 없음", "사물함 없음", "당신의 생존 확률이 아주 조금 증가했습니다." };
             ColorHex = "#008000";
             Type = EventType.Remove;
         }

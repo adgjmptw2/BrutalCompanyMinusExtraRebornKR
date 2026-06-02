@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Turrets...", "Moving Turrets!", "Covid free facility", "Cleaners!" };
+            Descriptions = new List<string>() { "터렛들...", "움직이는 터렛!", "코로나 청정 시설", "청소부들!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

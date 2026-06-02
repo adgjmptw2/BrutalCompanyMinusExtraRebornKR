@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "The company is now incurring a fee for shipments!", "You are going to be taxed for any shipments...", "I don't recommend buying anything today.", "You might go into debt, beware" };
+            Descriptions = new List<string>() { "회사가 이제 배송비를 부과하기 시작했습니다!", "모든 배송물에 세금이 붙을 예정입니다...", "오늘은 아무것도 사지 않는 걸 추천합니다.", "빚더미에 앉을 수도 있으니 조심하세요" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

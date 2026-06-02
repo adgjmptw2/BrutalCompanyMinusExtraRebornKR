@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;//3
-            Descriptions = new List<string>() { "I like trains", "Looks like train factory" };
+            Descriptions = new List<string>() { "기차가 좋아요", "열차 공장 같군요" };
             ColorHex = "#FFFFFF";
             Type = EventType.Neutral;
 

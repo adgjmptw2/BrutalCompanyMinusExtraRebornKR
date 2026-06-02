@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "The ship has arrived a little late.", "Warp drive failed!", "Behind schedule." };
+            Descriptions = new List<string>() { "함선이 조금 늦게 도착했습니다.", "워프 드라이브 가동 실패!", "예정보다 늦어졌습니다." };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

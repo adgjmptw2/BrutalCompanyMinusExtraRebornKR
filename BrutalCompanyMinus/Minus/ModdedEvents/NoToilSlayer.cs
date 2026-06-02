@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "No inside Miniguns today", "No ToilSlayers", "No ToilSlayers permited in this area" };
+            Descriptions = new List<string>() { "오늘은 내부 미니건 없음", "토일슬레이어 없음", "이 구역은 토일슬레이어 출입 금지입니다" };
             ColorHex = "#008000";
             Type = EventType.Remove;
 

@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Teleporter Traps!", "These will teleport enemies" };
+            Descriptions = new List<string>() { "텔레포터 함정 포착!", "주의: 이 장치는 적들을 당신 곁으로 '배달'해줍니다." };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

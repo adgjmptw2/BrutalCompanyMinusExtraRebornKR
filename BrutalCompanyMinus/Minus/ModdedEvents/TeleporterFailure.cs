@@ -16,7 +16,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 4;
-            Descriptions = new List<string>() { "Teleportation system: ERROR", "Teleporter malfunction" };
+            Descriptions = new List<string>() { "텔레포트 시스템: 응답 없음(ERROR)", "텔레포터 오작동: 행운을 빕니다, 조각나지 않기를!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

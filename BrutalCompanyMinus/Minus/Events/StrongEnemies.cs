@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Enemies here are a little more tougher than usual.", "Should take an extra wack or 2", "These monsters are drugged" };
+            Descriptions = new List<string>() { "이곳의 적들은 평소보다 조금 더 끈질깁니다.", "한두 대는 더 때려야 할 겁니다", "괴물들이 약이라도 빤 모양이군요" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Most scrap has transmuted into something small...", "This is going to be a one-handed job", "It's all the light stuff" };
+            Descriptions = new List<string>() { "대부분의 고철이 작은 무언가로 변질되었습니다...", "이번엔 한 손으로도 충분하겠군요", "전부 가벼운 물건들뿐입니다" };
             ColorHex = "#008000";
             Type = EventType.Good;
 

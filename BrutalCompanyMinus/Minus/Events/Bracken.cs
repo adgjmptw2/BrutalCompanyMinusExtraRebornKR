@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Your neck tingles", "Your local chiropractors", "I hope you have nyctophobia", "You wont win this staring competition" };
+            Descriptions = new List<string>() { "목덜미가 따끔거립니다", "당신의 전담 척추 교정사들", "당신에게 어둠 공포증이 있었으면 좋겠군요", "이 눈싸움에서 당신은 결코 이길 수 없을 겁니다" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

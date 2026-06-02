@@ -21,7 +21,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "There is a ghost in the facility", "Who keeps turning the lights off...", "Paranormal signature detected", "Bring your ouija board" };
+            Descriptions = new List<string>() { "시설 안에 유령이 있습니다", "누가 자꾸 전등을 끄는 거죠...", "초자연적 신호가 감지되었습니다", "위자 보드를 챙겨오세요" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
         }

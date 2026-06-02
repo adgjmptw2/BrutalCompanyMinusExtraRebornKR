@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Nightmare facility", "I recommend bringing a vacuum cleaner.", "You are going to want to burn this facility down.", "I wish Zeekers added a flamethrower." };
+            Descriptions = new List<string>() { "악몽 같은 시설", "진공청소기를 챙겨오는 것을 추천합니다.", "이 시설을 통째로 태워버리고 싶어질 겁니다.", "Zeekers가 화염방사기를 추가해줬으면 좋겠네요." };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

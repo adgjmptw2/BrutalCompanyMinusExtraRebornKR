@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Inside miniguns", "Toilheads... but more advanced", "ToilSlayers!!!" };
+            Descriptions = new List<string>() { "내장형 미니건 탑재", "코일헤드... 그 이상의 '무언가'", "코일 슬레이어!!! (당신이 썰릴 차례입니다)" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

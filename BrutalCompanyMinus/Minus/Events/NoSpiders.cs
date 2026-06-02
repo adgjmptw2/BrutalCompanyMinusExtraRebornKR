@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "No 8 legged creatures", "No arachnophobia", "You don't need to bring a hoover inside the facility." };
+            Descriptions = new List<string>() { "다리 8개 달린 생물 없음", "거미 공포증 주의보 해제", "시설 안에 진공청소기를 들고 올 필요가 없습니다." };
             ColorHex = "#008000";
             Type = EventType.Remove;
 

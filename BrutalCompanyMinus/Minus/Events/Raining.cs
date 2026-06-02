@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 8;
-            Descriptions = new List<string>() { "It's raining out here", "Rain...", "The only thing you will see in Ireland" };
+            Descriptions = new List<string>() { "여기는 비가 내리고 있네요", "비...", "아일랜드에서 볼 수 있는 유일한 풍경" };
             ColorHex = "#FFFFFF";
             Type = EventType.Neutral;
         }

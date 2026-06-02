@@ -16,7 +16,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 4;
-            Descriptions = new List<string>() { "Teleporter targeting system: ERROR", "Teleporter works.... but its not what it seems" };
+            Descriptions = new List<string>() { "텔레포터 조준 시스템: 에러(ERROR)", "텔레포터가 작동합니다... 다만, 당신이 생각하는 방식은 아닐 겁니다." };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

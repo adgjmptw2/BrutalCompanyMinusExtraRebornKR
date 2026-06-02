@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "The ship has arrived at a very nice time.", "Earlier than usual!", "Before Sunrise!" };
+            Descriptions = new List<string>() { "함선이 아주 적절한 시간에 도착했습니다.", "평소보다 일찍 도착했군요!", "일출 전입니다!" };
             ColorHex = "#00FF00";
             Type = EventType.VeryGood;
 

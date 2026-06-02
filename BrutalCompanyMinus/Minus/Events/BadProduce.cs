@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "Everything here is made cheaply...", "Who produced this crap...", "Budget scrap...", "Quantity over quality" };
+            Descriptions = new List<string>() { "이곳의 모든 건 싸구려로 만들어졌습니다...", "누가 이런 쓰레기를 만든 거야...", "예산 맞춤형 고물들...", "질보다 양" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

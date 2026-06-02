@@ -21,7 +21,7 @@ namespace BrutalCompanyMinus.Minus.Events
             EventsToRemove = new List<string>() { nameof(Hell), nameof(Masked), nameof(NutSlayer) };
 
             Weight = 1;
-            Descriptions = new List<string>() { "No friends :(", "No more hugs", "No more trust issues" };
+            Descriptions = new List<string>() { "친구 없음 :(", "이제 포옹은 그만", "더 이상의 불신지옥은 없습니다" };
             ColorHex = "#008000";
             Type = EventType.Remove;
         }

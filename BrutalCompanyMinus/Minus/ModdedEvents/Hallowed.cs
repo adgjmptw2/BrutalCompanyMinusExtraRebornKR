@@ -16,7 +16,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "The spirit of Halloween is upon us", "Spooky vibes are everywhere", "Trick or treat!" };
+            Descriptions = new List<string>() { "할로윈의 영혼이 우리와 함께합니다", "으스스한 기운이 가득하네요", "사탕을 안 주면 장난칠 거예요!" };
             ColorHex = "#FFA500";
             Type = EventType.Bad;
 

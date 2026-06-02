@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "There is some scrap to be found outside.", "This facility lacks proper waste disposal", "Yay, scrap outside" };
+            Descriptions = new List<string>() { "외부에서도 고철을 찾을 수 있습니다.", "이 시설은 폐기물 처리 규정을 전혀 안 지키나 보군요", "와아, 밖에도 고철이 있네요" };
             ColorHex = "#00FF00";
             Type = EventType.VeryGood;
 

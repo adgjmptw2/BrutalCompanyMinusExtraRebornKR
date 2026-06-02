@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "I would not be upset if you could not collect any scrap", "Avoid monsters at all costs", "Did you know that it is a Blood Moon?", "Somehow I think this is worse than Eclipsed", "Nowhere is gonna be safe", "All hail the blood moon!" };
+            Descriptions = new List<string>() { "고철을 하나도 못 챙겨오더라도 화내지 않을게요", "무슨 수를 써서라도 괴물들을 피하세요", "지금이 '블러드 문'이라는 사실을 알고 계셨나요?", "왠지 '일식(Eclipsed)'보다 더 최악인 것 같군요", "그 어디도 안전하지 않을 겁니다", "블러드 문을 찬양하라!" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Unwanted attention", "The boys from the trees", "Imagine dogs and leafs" };
+            Descriptions = new List<string>() { "원치 않는 관심", "나무 위에서 온 녀석들", "개들과 나뭇잎들을 상상해 보세요" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

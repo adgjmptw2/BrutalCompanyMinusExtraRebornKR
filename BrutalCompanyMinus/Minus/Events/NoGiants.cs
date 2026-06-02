@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "No stomping", "Eddie hall isn't allowed here", "No creature's with an IQ of a toddler here, I hope." };
+            Descriptions = new List<string>() { "쿵쿵대지 마세요", "에디 홀은 출입 금지입니다", "유아 수준의 지능을 가진 생물은 없길 바랍니다." };
             ColorHex = "#008000";
             Type = EventType.Remove;
 

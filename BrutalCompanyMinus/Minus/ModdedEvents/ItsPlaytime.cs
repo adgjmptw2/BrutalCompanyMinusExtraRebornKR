@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2; //2
-            Descriptions = new List<string>() { "Prepare yourself for the next chapter...", "You will regret this...", "The critters and the bigger critters" };
+            Descriptions = new List<string>() { "다음 장을 준비하세요...", "후회하게 될 겁니다...", "작은 놈들과 더 큰 놈들" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

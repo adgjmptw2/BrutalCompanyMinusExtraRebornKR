@@ -14,7 +14,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "What items do you prioritize?", "Smaller trips this time", "Guess you might not get everything" };
+            Descriptions = new List<string>() { "어떤 아이템을 먼저 챙기실 건가요?", "이번엔 가볍게 다녀오죠", "전부 다 가져가긴 힘들겠는데요" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
             EventsToRemove = new List<string>() { nameof(HotBarMania) };

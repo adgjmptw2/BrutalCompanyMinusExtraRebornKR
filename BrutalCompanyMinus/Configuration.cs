@@ -140,7 +140,7 @@ namespace BrutalCompanyMinus
 
         // Other
         public static CultureInfo en = new CultureInfo("en-US"); // This is important, no touchy
-        public static string scaleDescription = "Format: BaseScale, IncrementScale, MinCap, MaxCap,   Forumla: BaseScale + (IncrementScale * Difficulty),   By default difficulty goes between 0 to 100 depending on certain factors";
+        public static string scaleDescription = "형식: 기본값, 증가값, 최솟값, 최댓값   공식: 기본값 + (증가값 * 난이도)   기본적으로 난이도는 특정 요소에 따라 0~100 사이를 오갑니다";
 
         // Custom Events and Settings
         public static string customEventsFolder = Paths.ConfigPath + "\\BrutalCompanyMinusExtraReborn\\CustomEvents";
@@ -172,9 +172,9 @@ namespace BrutalCompanyMinus
         private static void Initalize()
         {
             // Difficulty Settings
-            useCustomWeights = difficultyConfig.Bind("_Event Settings", "Use custom weights?", false, "'false'= Use eventType weights to set all the weights     'true'= Use custom set weights");
-            eventsToSpawn = getScale(difficultyConfig.Bind("_Event Settings", "Event scale amount", "2, 0.03, 2.0, 5.0", "The base amount of events   Format: BaseScale, IncrementScale, MinCap, MaxCap,   " + scaleDescription).Value);
-            weightsForExtraEvents = ParseValuesFromString(difficultyConfig.Bind("_Event Settings", "Weights for bonus events", "40, 39, 15, 5, 1", "Weights for bonus events, can be expanded. (40, 39, 15, 5, 1) is equivalent to (+0, +1, +2, +3, +4) events").Value);
+            useCustomWeights = difficultyConfig.Bind("_Event Settings", "Use custom weights?", false, "'false'= 이벤트 유형 가중치로 모든 가중치 설정     'true'= 직접 설정한 가중치 사용");
+            eventsToSpawn = getScale(difficultyConfig.Bind("_Event Settings", "Event scale amount", "2, 0.03, 2.0, 5.0", "이벤트의 기본 발생 수   형식: 기본값, 증가값, 최솟값, 최댓값   " + scaleDescription).Value);
+            weightsForExtraEvents = ParseValuesFromString(difficultyConfig.Bind("_Event Settings", "Weights for bonus events", "40, 39, 15, 5, 1", "추가 이벤트 가중치, 확장 가능. (40, 39, 15, 5, 1)은 (+0, +1, +2, +3, +4) 이벤트에 해당").Value);
 
             eventTypeScales = new Scale[8]
             {
@@ -185,69 +185,69 @@ namespace BrutalCompanyMinus
                 getScale(difficultyConfig.Bind("_EventType Weights", "Good event scale", "23, -0.1, 13, 23", scaleDescription).Value),
                 getScale(difficultyConfig.Bind("_EventType Weights", "VeryGood event scale", "3, 0.14, 3, 17", scaleDescription).Value),
                 getScale(difficultyConfig.Bind("_EventType Weights", "Rare event scale", "2, 0.02, 2, 10", scaleDescription).Value),
-                getScale(difficultyConfig.Bind("_EventType Weights", "Remove event scale", "15, -0.05, 10, 15", "These events remove something   " + scaleDescription).Value)
+                getScale(difficultyConfig.Bind("_EventType Weights", "Remove event scale", "15, -0.05, 10, 15", "이 이벤트들은 무언가를 제거합니다   " + scaleDescription).Value)
             };
 
-            difficultyTransitions = GetDifficultyTransitionsFromString(difficultyConfig.Bind("Difficulty Scaling", "Difficulty Transitions", "Easy,00FF00,0|Medium,008000,15|Hard,FF0000,30|Very Hard,800000,50|Insane,140000,75", "Format: NAME,HEX,ABOVE, above is the value the name will be shown at.").Value);
-            ignoreMaxCap = difficultyConfig.Bind("Difficulty Scaling", "Ignore max cap?", false, "Will ignore max cap if true, upperlimit is dictated by difficulty max cap setting as well.");
-            difficultyMaxCap = difficultyConfig.Bind("Difficulty Scaling", "Difficulty max cap", 100.0f, "The difficulty value wont go beyond this.");
-            scaleByDaysPassed = difficultyConfig.Bind("Difficulty Scaling", "Scale by days passed?", true, "Will add to difficulty depending on how many days have passed.");
-            daysPassedDifficultyMultiplier = difficultyConfig.Bind("Difficulty Scaling", "Difficulty per days passed?", 1.0f, "");
-            daysPassedDifficultyCap = difficultyConfig.Bind("Difficulty Scaling", "Days passed difficulty cap", 60.0f, "Days passed difficulty scaling wont add beyond this.");
-            scaleByScrapInShip = difficultyConfig.Bind("Difficulty Scaling", "Scale by scrap in ship?", true, "Will add to difficulty depending on how much scrap is inside the ship.");
-            scrapInShipDifficultyMultiplier = difficultyConfig.Bind("Difficulty Scaling", "Difficulty per scrap value in ship?", 0.0025f, "By default +1.0 per 400 scrap in ship");
-            scrapInShipDifficultyCap = difficultyConfig.Bind("Difficulty Scaling", "Scrap in ship difficulty cap", 30.0f, "Scrap in ship difficulty scaling wont add beyond this.");
-            scaleByQuota = difficultyConfig.Bind("Difficulty Scaling", "Scale by quota?", false, "Will add to difficulty depending on how high the quota is.");
-            quotaDifficultyMultiplier = difficultyConfig.Bind("Difficulty Scaling", "Difficulty per quota value?", 0.005f, "By default +1.0 per 200 quota");
-            quotaDifficultyCap = difficultyConfig.Bind("Difficulty Scaling", "Quota difficulty cap", 100.0f, "Quota scaling wont add difficulty beyond this");
-            scaleByMoonGrade = difficultyConfig.Bind("Difficulty Scaling", "Scale by moon grade?", true, "Will add to difficulty depending on grade of moon you land on.");
-            gradeAdditives = GetMoonRiskFromString(difficultyConfig.Bind("Difficulty Scaling", "Grade difficulty scaling", "D,-8|C,-8|B,-4|A,5|S,10|S+,15|S++,20|S+++,30|Other,10", "Format: GRADE,DIFFICULTY, Do not remove 'Other'").Value);
-            scaleByWeather = difficultyConfig.Bind("Difficulty Scaling", "Scale by weather type?", false, "Will add to difficulty depending on weather of moon you land on.");
-            scaleHeat = difficultyConfig.Bind("Difficulty Scaling", "Scale by Heat?", false, "Scales the difficulty by the current heat of the planet Heat values will never go below 0.");
-            heatIncrementAmount = difficultyConfig.Bind("Difficulty Scaling", "Heat difficulty additive", 1f, "After visiting a moon, the next visit will incur this amount of heat.");
-            heatDecrementAmount = difficultyConfig.Bind("Difficulty Scaling", "Heat difficulty decrement", 1f, "If visiting a moon different from the previous day, decrement by this value.");
-            heatDampening = difficultyConfig.Bind("Difficulty Scaling", "Heat dampening factor", 0.15f, "The effective heat factor. Numbers closer to 0 will cause the calculated difficulty numbers to go higher. Higher numbers retain a value closer to the original value.");
-            heatMultiplierDifficulty = difficultyConfig.Bind("Difficulty Scaling", "Heat multiplier (Difficulty)", 0.0015f, "This is used for calculating the difficulty of the current difficulty. Higher numbers will mulitply the value faster.");
-            heatMultiplierOtherCalculations = difficultyConfig.Bind("Difficulty Scaling", "Heat multiplier (Non-Difficulty)", 0.004f, "This is used for calculations other than difficulty, affecting other properties like power values. Higher numbers will mulitply the value faster.");
-            startingHeat = difficultyConfig.Bind("Difficulty Scaling", "Starting Heat", 0f, "The starting heat of every planet on its first run. Keep at 0 for default behavior.");
-            heatMaxCap = difficultyConfig.Bind("Difficulty Scaling", "Heat Max Cap", 10f, "Heat values will never go beyond this value");
-            heatForceEventAtMax = difficultyConfig.Bind("Difficulty Scaling", "Force event at max heat?", false, "If true, when the heat reaches the max value, spawn the events you wrote below in the list.");
-            heatEventsToForce = difficultyConfig.Bind("Difficulty Scaling", "Events to force at max heat", "", "When heat reaches max value, these events will be forced to spawn. Seperate by comma for each event name. Event names are case sensitive and must be exact to their entry name. Trailing white spaces are stripped from every name.");
-            heatSettingsToAffect = difficultyConfig.Bind("Difficulty Scaling", "Heat Affects What Properties", HeatSettingsFlags.Difficulty, "Cchoose what additional properties you wish it to affect.");
+            difficultyTransitions = GetDifficultyTransitionsFromString(difficultyConfig.Bind("Difficulty Scaling", "Difficulty Transitions", "쉬움,00FF00,0|보통,008000,15|어려움,FF0000,30|매우어려움,800000,50|절망,140000,75", "형식: 이름,16진수색상,기준값, 기준값은 해당 이름이 표시되는 난이도 수치입니다.").Value);
+            ignoreMaxCap = difficultyConfig.Bind("Difficulty Scaling", "Ignore max cap?", false, "true로 설정 시 최대 상한을 무시합니다. 상한은 '난이도 최대 상한' 설정에 의해서도 결정됩니다.");
+            difficultyMaxCap = difficultyConfig.Bind("Difficulty Scaling", "Difficulty max cap", 100.0f, "난이도 수치가 이 값을 초과하지 않습니다.");
+            scaleByDaysPassed = difficultyConfig.Bind("Difficulty Scaling", "Scale by days passed?", true, "경과 일수에 따라 난이도가 증가합니다.");
+            daysPassedDifficultyMultiplier = difficultyConfig.Bind("Difficulty Scaling", "Difficulty per days passed?", 1.0f, "경과한 일수 1일당 추가되는 난이도입니다.");
+            daysPassedDifficultyCap = difficultyConfig.Bind("Difficulty Scaling", "Days passed difficulty cap", 60.0f, "경과 일수로 인한 난이도 증가가 이 값을 초과하지 않습니다.");
+            scaleByScrapInShip = difficultyConfig.Bind("Difficulty Scaling", "Scale by scrap in ship?", true, "함선 내 스크랩 양에 따라 난이도가 증가합니다.");
+            scrapInShipDifficultyMultiplier = difficultyConfig.Bind("Difficulty Scaling", "Difficulty per scrap value in ship?", 0.0025f, "기본값: 함선 내 스크랩 400당 +1.0");
+            scrapInShipDifficultyCap = difficultyConfig.Bind("Difficulty Scaling", "Scrap in ship difficulty cap", 30.0f, "함선 내 스크랩으로 인한 난이도 증가가 이 값을 초과하지 않습니다.");
+            scaleByQuota = difficultyConfig.Bind("Difficulty Scaling", "Scale by quota?", false, "할당량 수치에 따라 난이도가 증가합니다.");
+            quotaDifficultyMultiplier = difficultyConfig.Bind("Difficulty Scaling", "Difficulty per quota value?", 0.005f, "기본값: 할당량 200당 +1.0");
+            quotaDifficultyCap = difficultyConfig.Bind("Difficulty Scaling", "Quota difficulty cap", 100.0f, "할당량으로 인한 난이도 증가가 이 값을 초과하지 않습니다");
+            scaleByMoonGrade = difficultyConfig.Bind("Difficulty Scaling", "Scale by moon grade?", true, "착륙한 달의 등급에 따라 난이도가 증가합니다.");
+            gradeAdditives = GetMoonRiskFromString(difficultyConfig.Bind("Difficulty Scaling", "Grade difficulty scaling", "D,-8|C,-8|B,-4|A,5|S,10|S+,15|S++,20|S+++,30|Other,10", "형식: 등급,난이도, 'Other'는 삭제하지 마세요").Value);
+            scaleByWeather = difficultyConfig.Bind("Difficulty Scaling", "Scale by weather type?", false, "착륙한 달의 날씨에 따라 난이도가 증가합니다.");
+            scaleHeat = difficultyConfig.Bind("Difficulty Scaling", "Scale by Heat?", false, "행성의 현재 열기에 따라 난이도를 조정합니다. 열기 값은 0 미만으로 내려가지 않습니다.");
+            heatIncrementAmount = difficultyConfig.Bind("Difficulty Scaling", "Heat difficulty additive", 1f, "달을 방문한 뒤, 같은 달을 다시 갈 때 이만큼 열기가 쌓입니다.");
+            heatDecrementAmount = difficultyConfig.Bind("Difficulty Scaling", "Heat difficulty decrement", 1f, "전날과 다른 달을 방문하면 열기가 이만큼 줄어듭니다.");
+            heatDampening = difficultyConfig.Bind("Difficulty Scaling", "Heat dampening factor", 0.15f, "열기 보정 계수입니다. 0에 가까울수록 난이도가 더 크게 오르고, 값이 클수록 원래 수치에 가깝게 유지됩니다.");
+            heatMultiplierDifficulty = difficultyConfig.Bind("Difficulty Scaling", "Heat multiplier (Difficulty)", 0.0015f, "난이도 계산에 쓰입니다. 값이 클수록 열기가 난이도에 더 빠르게 반영됩니다.");
+            heatMultiplierOtherCalculations = difficultyConfig.Bind("Difficulty Scaling", "Heat multiplier (Non-Difficulty)", 0.004f, "난이도 외(예: 파워 값) 계산에 쓰입니다. 값이 클수록 더 빠르게 반영됩니다.");
+            startingHeat = difficultyConfig.Bind("Difficulty Scaling", "Starting Heat", 0f, "각 행성을 처음 방문할 때의 시작 열기입니다. 기본값은 0입니다.");
+            heatMaxCap = difficultyConfig.Bind("Difficulty Scaling", "Heat Max Cap", 10f, "열기가 이 값을 넘지 않습니다.");
+            heatForceEventAtMax = difficultyConfig.Bind("Difficulty Scaling", "Force event at max heat?", false, "true이면 열기가 최대일 때 아래 목록의 이벤트를 강제로 발생시킵니다.");
+            heatEventsToForce = difficultyConfig.Bind("Difficulty Scaling", "Events to force at max heat", "", "열기가 최대일 때 강제 발생할 이벤트 이름입니다. 쉼표로 구분하며, 등록된 이름과 대소문자가 정확히 같아야 합니다. 앞뒤 공백은 자동으로 제거됩니다.");
+            heatSettingsToAffect = difficultyConfig.Bind("Difficulty Scaling", "Heat Affects What Properties", HeatSettingsFlags.Difficulty, "열기가 영향을 줄 항목을 선택합니다.");
 
             weatherAdditives = new Dictionary<LevelWeatherType, float>()
             {
-                { LevelWeatherType.None, difficultyConfig.Bind("Difficulty Scaling", "None weather difficulty", 0.0f, "Difficulty added for playing on None weather").Value },
-                { LevelWeatherType.Rainy, difficultyConfig.Bind("Difficulty Scaling", "Rainy weather difficulty", 2.0f, "Difficulty added for playing on Rainy weather").Value },
-                { LevelWeatherType.DustClouds, difficultyConfig.Bind("Difficulty Scaling", "DustClouds weather difficulty", 2.0f, "Difficulty added for playing on DustClouds weather").Value },
-                { LevelWeatherType.Flooded, difficultyConfig.Bind("Difficulty Scaling", "Flooded weather difficulty", 4.0f, "Difficulty added for playing on Flooded weather").Value },
-                { LevelWeatherType.Foggy, difficultyConfig.Bind("Difficulty Scaling", "Foggy weather difficulty", 4.0f, "Difficulty added for playing on Foggy weather").Value },
-                { LevelWeatherType.Stormy, difficultyConfig.Bind("Difficulty Scaling", "Stormy weather difficulty", 7.0f, "Difficulty added for playing on Stormy weather").Value },
-                { LevelWeatherType.Eclipsed, difficultyConfig.Bind("Difficulty Scaling", "Eclipsed weather difficulty", 7.0f, "Difficulty added for playing on Eclipsed weather").Value },
+                { LevelWeatherType.None, difficultyConfig.Bind("Difficulty Scaling", "None weather difficulty", 0.0f, "날씨 없음 상태에서 플레이 시 추가 난이도").Value },
+                { LevelWeatherType.Rainy, difficultyConfig.Bind("Difficulty Scaling", "Rainy weather difficulty", 2.0f, "비 날씨에서 플레이 시 추가 난이도").Value },
+                { LevelWeatherType.DustClouds, difficultyConfig.Bind("Difficulty Scaling", "DustClouds weather difficulty", 2.0f, "먼지 구름 날씨에서 플레이 시 추가 난이도").Value },
+                { LevelWeatherType.Flooded, difficultyConfig.Bind("Difficulty Scaling", "Flooded weather difficulty", 4.0f, "홍수 날씨에서 플레이 시 추가 난이도").Value },
+                { LevelWeatherType.Foggy, difficultyConfig.Bind("Difficulty Scaling", "Foggy weather difficulty", 4.0f, "안개 날씨에서 플레이 시 추가 난이도").Value },
+                { LevelWeatherType.Stormy, difficultyConfig.Bind("Difficulty Scaling", "Stormy weather difficulty", 7.0f, "폭풍 날씨에서 플레이 시 추가 난이도").Value },
+                { LevelWeatherType.Eclipsed, difficultyConfig.Bind("Difficulty Scaling", "Eclipsed weather difficulty", 7.0f, "일식 날씨에서 플레이 시 추가 난이도").Value },
             };
-            scrapValueMax = difficultyConfig.Bind("Difficulty Scaling", "Scrap value max cap", 2147483647.0f, "The scrap value multipliers when added together wont go beyond this.");
-            scrapAmountMax = difficultyConfig.Bind("Difficulty Scaling", "Scrap amount max cap", 2147483647.0f, "The scrap amount multipliers when added together wont go beyond this.");
-            FactorySizeMax = difficultyConfig.Bind("Difficulty Scaling", "Factory size max cap", 2147483647.0f, "The factory size multipliers when added together wont go beyond this. Use at own risk");
-            FactorySizeMin = difficultyConfig.Bind("Difficulty Scaling", "Factory size min cap", 0.01f, "The factory size multipliers when added together wont go below this. Use at own risk.");
-            enableCustomTimeAdjustments = difficultyConfig.Bind("Difficulty Scaling", "Enable Time Adjustments?", false, "Enable custom time adjustments globally for difficulty scaling.");
-            timeScaling = getScale(difficultyConfig.Bind("Difficulty Scaling", "Time Scaling", "1, 0.0, 1, 1", "Time scaling multiplier with respect to difficulty scaling" + scaleDescription).Value);
-            startingTime = getScale(difficultyConfig.Bind("Difficulty Scaling", "Starting Time", "100, 0.0, 100, 100", "Starting time with respect to difficulty" + scaleDescription).Value);
+            scrapValueMax = difficultyConfig.Bind("Difficulty Scaling", "Scrap value max cap", 2147483647.0f, "스크랩 가치 배율의 합산이 이 값을 초과하지 않습니다.");
+            scrapAmountMax = difficultyConfig.Bind("Difficulty Scaling", "Scrap amount max cap", 2147483647.0f, "스크랩 수량 배율의 합산이 이 값을 초과하지 않습니다.");
+            FactorySizeMax = difficultyConfig.Bind("Difficulty Scaling", "Factory size max cap", 2147483647.0f, "공장 크기 배율의 합산이 이 값을 초과하지 않습니다. 사용에 주의하세요");
+            FactorySizeMin = difficultyConfig.Bind("Difficulty Scaling", "Factory size min cap", 0.01f, "공장 크기 배율의 합산이 이 값 미만으로 내려가지 않습니다. 사용에 주의하세요.");
+            enableCustomTimeAdjustments = difficultyConfig.Bind("Difficulty Scaling", "Enable Time Adjustments?", false, "난이도 스케일링에 커스텀 시간 조정을 전역으로 활성화합니다.");
+            timeScaling = getScale(difficultyConfig.Bind("Difficulty Scaling", "Time Scaling", "1, 0.0, 1, 1", "난이도 스케일링에 따른 시간 배율" + scaleDescription).Value);
+            startingTime = getScale(difficultyConfig.Bind("Difficulty Scaling", "Starting Time", "100, 0.0, 100, 100", "난이도에 따른 시작 시간" + scaleDescription).Value);
 
-            spawnChanceMultiplierScaling = getScale(difficultyConfig.Bind("Difficulty", "Spawn chance multiplier scale", "1.0, 0.017, 1.0, 2.0", "This will multiply the spawn chance by this,   " + scaleDescription).Value);
-            insideSpawnChanceAdditive = getScale(difficultyConfig.Bind("Difficulty", "Inside spawn chance additive", "0.0, 0.0, 0.0, 0.0", "This will add to all keyframes for insideSpawns on the animationCurve,   " + scaleDescription).Value);
-            outsideSpawnChanceAdditive = getScale(difficultyConfig.Bind("Difficulty", "Outside spawn chance additive", "0.0, 0.0, 0.0, 0.0", "This will add to all keyframes for outsideSpawns on the animationCurve,   " + scaleDescription).Value);
-            spawnCapMultiplier = getScale(difficultyConfig.Bind("Difficulty", "Spawn cap multipler scale", "1.0, 0.017, 1.0, 2.0", "This will multiply outside and inside power counts by this,   " + scaleDescription).Value);
-            insideEnemyMaxPowerCountScaling = getScale(difficultyConfig.Bind("Difficulty", "Additional Inside Max Enemy Power Count", "0, 0, 0, 0", "Added max enemy power count for inside enemies.,   " + scaleDescription).Value);
-            outsideEnemyPowerCountScaling = getScale(difficultyConfig.Bind("Difficulty", "Additional Outside Max Enemy Power Count", "0, 0, 0, 0", "Added max enemy power count for outside enemies.,   " + scaleDescription).Value);
-            enemyBonusHpScaling = getScale(difficultyConfig.Bind("Difficulty", "Additional hp scale", "0, 0, 0, 0", "Added hp to all enemies,   " + scaleDescription).Value);
-            scrapValueMultiplier = getScale(difficultyConfig.Bind("Difficulty", "Scrap value multiplier scale", "1.0, 0.003, 1.0, 1.3", "Global scrap value multiplier,   " + scaleDescription).Value);
-            scrapAmountMultiplier = getScale(difficultyConfig.Bind("Difficulty", "Scrap amount multiplier scale", "1.0, 0.003, 1.0, 1.3", "Global scrap amount multiplier,   " + scaleDescription).Value);
-            factorySizeMultiplier = getScale(difficultyConfig.Bind("Difficulty", "Factory Size multiplier scale", "1.0, 0, 1.0, 1.0", "Factory size multiplier. Use at your own risk. May not load at all or will take a very long time to generate." + scaleDescription).Value);
+            spawnChanceMultiplierScaling = getScale(difficultyConfig.Bind("Difficulty", "Spawn chance multiplier scale", "1.0, 0.017, 1.0, 2.0", "이 값으로 스폰 확률을 곱합니다,   " + scaleDescription).Value);
+            insideSpawnChanceAdditive = getScale(difficultyConfig.Bind("Difficulty", "Inside spawn chance additive", "0.0, 0.0, 0.0, 0.0", "애니메이션 커브의 내부 스폰 키프레임에 이 값을 더합니다,   " + scaleDescription).Value);
+            outsideSpawnChanceAdditive = getScale(difficultyConfig.Bind("Difficulty", "Outside spawn chance additive", "0.0, 0.0, 0.0, 0.0", "애니메이션 커브의 외부 스폰 키프레임에 이 값을 더합니다,   " + scaleDescription).Value);
+            spawnCapMultiplier = getScale(difficultyConfig.Bind("Difficulty", "Spawn cap multipler scale", "1.0, 0.017, 1.0, 2.0", "내외부 파워 카운트를 이 값으로 곱합니다,   " + scaleDescription).Value);
+            insideEnemyMaxPowerCountScaling = getScale(difficultyConfig.Bind("Difficulty", "Additional Inside Max Enemy Power Count", "0, 0, 0, 0", "내부 적의 최대 파워 카운트에 추가,   " + scaleDescription).Value);
+            outsideEnemyPowerCountScaling = getScale(difficultyConfig.Bind("Difficulty", "Additional Outside Max Enemy Power Count", "0, 0, 0, 0", "외부 적의 최대 파워 카운트에 추가,   " + scaleDescription).Value);
+            enemyBonusHpScaling = getScale(difficultyConfig.Bind("Difficulty", "Additional hp scale", "0, 0, 0, 0", "모든 적의 체력에 추가,   " + scaleDescription).Value);
+            scrapValueMultiplier = getScale(difficultyConfig.Bind("Difficulty", "Scrap value multiplier scale", "1.0, 0.003, 1.0, 1.3", "전역 스크랩 가치 배율,   " + scaleDescription).Value);
+            scrapAmountMultiplier = getScale(difficultyConfig.Bind("Difficulty", "Scrap amount multiplier scale", "1.0, 0.003, 1.0, 1.3", "전역 스크랩 수량 배율,   " + scaleDescription).Value);
+            factorySizeMultiplier = getScale(difficultyConfig.Bind("Difficulty", "Factory Size multiplier scale", "1.0, 0, 1.0, 1.0", "공장 크기 배율. 사용에 주의하세요. 로딩이 안 되거나 생성에 매우 오랜 시간이 걸릴 수 있습니다." + scaleDescription).Value);
 
-            enablePlayerScaling = difficultyConfig.Bind("Player Scaling", "Enable player scaling?", false, "Enable player scaling");
-            playerScalingType = difficultyConfig.Bind("Player Scaling", "Player scaling type", "Linear", "Type of scaling for player amount. Options: Linear, Exponential, Logarithmic, Cubic");
-            playerScalingMultiplier = difficultyConfig.Bind("Player Scaling", "Player scaling multiplier", 1.0f, "Multiplier for player scaling");
-            basePlayerAmount = difficultyConfig.Bind("Player Scaling", "Base player amount", 4, "Base player amount");
+            enablePlayerScaling = difficultyConfig.Bind("Player Scaling", "Enable player scaling?", false, "플레이어 스케일링 활성화");
+            playerScalingType = difficultyConfig.Bind("Player Scaling", "Player scaling type", "Linear", "플레이어 수에 대한 스케일링 유형. 옵션: 선형(Linear), 지수(Exponential), 로그(Logarithmic), 3차(Cubic)");
+            playerScalingMultiplier = difficultyConfig.Bind("Player Scaling", "Player scaling multiplier", 1.0f, "플레이어 스케일링 배율");
+            basePlayerAmount = difficultyConfig.Bind("Player Scaling", "기본 플레이어 수", 4, "기본 플레이어 수");
 
             Scale bindEventTypeScrapAmountMultiplier(EventType difficulty)
                 => getScale(difficultyConfig.Bind("_EventType Scrap Multipliers", difficulty + " scrap amount scale", "1, 0.0, 1, 1", scaleDescription).Value);
@@ -259,15 +259,15 @@ namespace BrutalCompanyMinus
                 scrapValueByEventTypeScale.Add(difficulty, bindEventTypeScrapValueMultiplier(difficulty));
             }
 
-            MoonsToIgnore = difficultyConfig.Bind("Moons Settings", "Moons to Not Spawn Events On", "", "Events will not spawn on these moons. Seperate by comma for each moon name.");
+            MoonsToIgnore = difficultyConfig.Bind("Moons Settings", "Moons to Not Spawn Events On", "", "이 달에서는 이벤트가 발생하지 않습니다. 달 이름은 쉼표로 구분하세요.");
 
 
             // Custom scrap settings
-            nutSlayerLives = customAssetsConfig.Bind("NutSlayer", "Lives", 5, "If hp reaches zero or below, decrement lives and reset hp until 0 lives.");
+            nutSlayerLives = customAssetsConfig.Bind("NutSlayer", "Lives", 5, "체력이 0 이하가 되면 목숨이 1 줄고 체력이 초기화됩니다. 목숨이 0이 되면 사망합니다.");
             nutSlayerHp = customAssetsConfig.Bind("NutSlayer", "Hp", 6);
             nutSlayerMovementSpeed = customAssetsConfig.Bind("NutSlayer", "Speed?", 9.5f);
             nutSlayerImmortal = customAssetsConfig.Bind("NutSlayer", "Immortal?", true);
-            onlyPlayersAttackSlayer = customAssetsConfig.Bind("NutSlayer", "Only players can attack NutSlayer?", false, "Does nothing if Nutslayer is immortal.");
+            onlyPlayersAttackSlayer = customAssetsConfig.Bind("NutSlayer", "Only players can attack NutSlayer?", false, "넛슬레이어가 무적이면 효과가 없습니다. true면 플레이어만 공격할 수 있습니다.");
             grabbableTurret.minValue = customAssetsConfig.Bind("Grabbable Landmine", "Min value", 50).Value;
             grabbableTurret.maxValue = customAssetsConfig.Bind("Grabbable Landmine", "Max value", 75).Value;
             grabbableLandmine.minValue = customAssetsConfig.Bind("Grabbable Turret", "Min value", 100).Value;
@@ -276,19 +276,19 @@ namespace BrutalCompanyMinus
             slayerShotgunMaxValue = customAssetsConfig.Bind("Slayer Shotgun", "Max value", 300);
 
             // Weather settings
-            useWeatherMultipliers = weatherConfig.Bind("_Weather Settings", "Enable weather multipliers?", true, "'false'= Disable all weather multipliers     'true'= Enable weather multipliers");
-            randomizeWeatherMultipliers = weatherConfig.Bind("_Weather Settings", "Weather multiplier randomness?", false, "'false'= disable     'true'= enable");
-            enableTerminalText = weatherConfig.Bind("_Weather Settings", "Enable terminal text?", true);
+            useWeatherMultipliers = weatherConfig.Bind("_Weather Settings", "Enable weather multipliers?", true, "'false'= 모든 날씨 배율 비활성화     'true'= 날씨 배율 활성화");
+            randomizeWeatherMultipliers = weatherConfig.Bind("_Weather Settings", "Weather multiplier randomness?", false, "'false'= 비활성화     'true'= 활성화");
+            enableTerminalText = weatherConfig.Bind("_Weather Settings", "Enable terminal text?", true, "터미널에 날씨 관련 문구를 표시할지 여부입니다.");
 
-            weatherRandomRandomMinInclusive = weatherConfig.Bind("_Weather Random Multipliers", "Min Inclusive", 0.9f, "Lower bound of random value");
-            weatherRandomRandomMaxInclusive = weatherConfig.Bind("_Weather Random Multipliers", "Max Inclusive", 1.2f, "Upper bound of random value");
+            weatherRandomRandomMinInclusive = weatherConfig.Bind("_Weather Random Multipliers", "Min Inclusive", 0.9f, "무작위 배율의 최솟값(이상)입니다.");
+            weatherRandomRandomMaxInclusive = weatherConfig.Bind("_Weather Random Multipliers", "Max Inclusive", 1.2f, "무작위 배율의 최댓값(이하)입니다.");
 
             Weather createWeatherSettings(Weather weather)
             {
                 string configHeader = "(" + weather.weatherType.ToString() + ") Weather multipliers";
 
-                float valueMultiplierSetting = weatherConfig.Bind(configHeader, "Scrap Value Multiplier", weather.scrapValueMultiplier, "Multiply Scrap value for " + weather.weatherType.ToString()).Value;
-                float amountMultiplierSetting = weatherConfig.Bind(configHeader, "Scrap Amount Multiplier", weather.scrapAmountMultiplier, "Multiply Scrap amount for " + weather.weatherType.ToString()).Value;
+                float valueMultiplierSetting = weatherConfig.Bind(configHeader, "Scrap Value Multiplier", weather.scrapValueMultiplier, weather.weatherType.ToString() + " 날씨의 스크랩 가치 배율입니다.").Value;
+                float amountMultiplierSetting = weatherConfig.Bind(configHeader, "Scrap Amount Multiplier", weather.scrapAmountMultiplier, weather.weatherType.ToString() + " 날씨의 스크랩 수량 배율입니다.").Value;
 
                 return new Weather(weather.weatherType, valueMultiplierSetting, amountMultiplierSetting);
             }
@@ -303,46 +303,46 @@ namespace BrutalCompanyMinus
 
             // UI Settings
             UIKey = uiConfig.Bind("UI Options", "Toggle UI Key", "K");
-            color = uiConfig.Bind("UI Options", "UI Color Hex", "00A000", "Color hex for UI elements.");
-            uiColorReduction = uiConfig.Bind("UI Options", "UI Color Reduction Factor", 0.6275f, "Changes the color of the UI element when not active (0-1).");
-            colorArrows = uiConfig.Bind("UI Options", "UI Arrow Color Hex", "00A000", "Color hex for UI arrows.");
-            colorArrowsIncrease = uiConfig.Bind("UI Options", "UI Arrow Color Amplification", 255f / 160f, "Mutliplies the color by this number when UI arrows are active.");
-            colorText = uiConfig.Bind("UI Options", "UI Text Color Hex", "00FF00", "Color hex for UI text.");
+            color = uiConfig.Bind("UI Options", "UI Color Hex", "00A000", "UI 요소 색상(16진수)입니다.");
+            uiColorReduction = uiConfig.Bind("UI Options", "UI Color Reduction Factor", 0.6275f, "UI가 비활성일 때 색을 어둡게 하는 비율입니다(0~1).");
+            colorArrows = uiConfig.Bind("UI Options", "UI Arrow Color Hex", "00A000", "UI 화살표 색상(16진수)입니다.");
+            colorArrowsIncrease = uiConfig.Bind("UI Options", "UI Arrow Color Amplification", 255f / 160f, "화살표가 활성일 때 색에 곱하는 배율입니다.");
+            colorText = uiConfig.Bind("UI Options", "UI Text Color Hex", "00FF00", "UI 텍스트 색상(16진수)입니다.");
             //menuColor = uiConfig.Bind("UI Options", "UI Menu Color Hex", "000000", "Color hex for UI menu background.");
             //menuTransparency = uiConfig.Bind("UI Options", "UI Menu Transparency", 0.498f, "Transparency for UI menu background. (0-1)");
 
-            NormaliseScrapValueDisplay = uiConfig.Bind("UI Options", "Normalize scrap value display number?", true, "In game default value is 0.4, having this set to true will multiply the 'displayed value' by 2.5 so it looks normal.");
-            EnableUI = uiConfig.Bind("UI Options", "Enable UI?", true);
-            ShowUILetterBox = uiConfig.Bind("UI Options", "Display UI Letter Box?", true);
-            ShowExtraProperties = uiConfig.Bind("UI Options", "Display extra properties", true, "Display extra properties on UI such as scrap value and amount multipliers.");
-            PopUpUI = uiConfig.Bind("UI Options", "PopUp UI?", true, "Will the UI popup whenever you start the day?");
-            UITime = uiConfig.Bind("UI Options", "PopUp UI time.", 45.0f, "UI popup time");
-            scrollSpeed = uiConfig.Bind("UI Options", "Scroll speed", 1.0f, "Multiplier speed on scrolling with arrows.");
-            DisplayUIAfterShipLeaves = uiConfig.Bind("UI Options", "Display UI after ship leaves?", false, "Will only display event's after ship has left.");
-            DisplayExtraPropertiesAfterShipLeaves = uiConfig.Bind("UI Options", "Display extra properties on UI after ship leaves?", true, "This will show Event Type raritys for next day and difficulty info.");
-            displayEvents = uiConfig.Bind("UI Options", "Display events?", true, "Having this set to false wont show events in the UI.");
-            showEventsInChat = uiConfig.Bind("UI Options", "Will Minus display events in chat?", false);
+            NormaliseScrapValueDisplay = uiConfig.Bind("UI Options", "Normalize scrap value display number?", true, "게임 기본 표시값(0.4)을 2.5배해 UI에 익숙한 숫자로 보이게 합니다.");
+            EnableUI = uiConfig.Bind("UI Options", "Enable UI?", true, "이벤트 UI를 사용할지 여부입니다.");
+            ShowUILetterBox = uiConfig.Bind("UI Options", "Display UI Letter Box?", true, "UI 글자 상자를 표시할지 여부입니다.");
+            ShowExtraProperties = uiConfig.Bind("UI Options", "Display extra properties", true, "스크랩 가치·수량 배율 등 추가 정보를 UI에 표시합니다.");
+            PopUpUI = uiConfig.Bind("UI Options", "PopUp UI?", true, "하루를 시작할 때 UI가 자동으로 뜨게 할지 여부입니다.");
+            UITime = uiConfig.Bind("UI Options", "PopUp UI time.", 45.0f, "UI가 자동으로 닫히기까지의 시간(초)입니다.");
+            scrollSpeed = uiConfig.Bind("UI Options", "Scroll speed", 1.0f, "화살표로 스크롤할 때의 속도 배율입니다.");
+            DisplayUIAfterShipLeaves = uiConfig.Bind("UI Options", "Display UI after ship leaves?", false, "true이면 함선이 떠난 뒤에만 이벤트를 표시합니다.");
+            DisplayExtraPropertiesAfterShipLeaves = uiConfig.Bind("UI Options", "Display extra properties on UI after ship leaves?", true, "함선 출발 후 다음 날 이벤트 유형 확률과 난이도 정보를 표시합니다.");
+            displayEvents = uiConfig.Bind("UI Options", "Display events?", true, "false이면 UI에 이벤트 목록을 표시하지 않습니다.");
+            showEventsInChat = uiConfig.Bind("UI Options", "Will Minus display events in chat?", false, "true이면 채팅에도 이벤트 목록을 표시합니다.");
 
             //Core Properties
-            enableCustomEvents = CorePropertiesConfig.Bind("Custom Events", "Enable Custom Events?", true, "Enables custom events to be loaded from the custom events folder.");
-            ExtraLogging = CorePropertiesConfig.Bind("Debugging", "Enable Extra Logging?", false, "Enables extra logging for debugging purposes.");
-            SilenceEnum = CorePropertiesConfig.Bind("Debugging", "Silence Enum Warnings?", true, "Silences warnings about potentially mismatched enums");
-            SilencePrefab = CorePropertiesConfig.Bind("Debugging", "Silence Prefab Warnings?", true, "Silences warnings about potentially missing prefabs");
-            GetMethods = CorePropertiesConfig.Bind("Debugging", "Silence Get Method Warnings?", true, "Silences warnings about missing enemies and items from mods not installed.");
-            DisableAllEvents = CorePropertiesConfig.Bind("Events Features", "Disable all events?", false, "Setting this to true will disable all events from spawning. This forces zero events.");
-            dontHandlePower = CorePropertiesConfig.Bind("Mod Compatibility", "Experimental Dont Handle Power?", false, "If you wish to let other mods handle power levels, enable this. Some settings may affect this.");
-            dontHandleSpawnCurves = CorePropertiesConfig.Bind("Mod Compatibility", "Experimental Dont Handle Spawn Chance?", false, "If you wish to let other mods handle spawn curves, enable this. Some settings may affect this.");
-            AffectPropertiesOutOfEvents = CorePropertiesConfig.Bind("Mod Compatibility", "Let Brutal handle properties outside of events?", true, "Disable this if you wish to let Brutal not handle any propeties outside of events.");
-            deferWeatherToMods = CorePropertiesConfig.Bind("Mod Compatibility", "Defer Weather To Weather ToolKit Mod?", false, "If you wish to let other mods handle Brutal's weather setting effects, enable this. This has no effect on custom events as those use weather toolkit by default.");
-            enforceEscapeModChecks = CorePropertiesConfig.Bind("Mod Compatibility", "Enforce Escape Mod Checks?", true, "If you don't have any enemy escape mods (Starlancer AI, for example) installed, should Brutal modify spawning of certain events to prevent improper enemy AI behaviour? Disable this if you wish to run events without the safety check.");
-            enableSpecialEvents = CorePropertiesConfig.Bind("Events Features", "Enable Special Events?", false, "Enables special events to be loaded.");
-            enableBetaEvents = CorePropertiesConfig.Bind("Events Features", "Enable Beta Events?", false, "Enables beta events to be loaded. These events are untested and may be very buggy, use at your own risk.");
-            transmutationBlacklist = CorePropertiesConfig.Bind("Events Features", "Transmutation Blacklist", "", "Blacklist items here to prevent them from being used in scrap transmutation. Uses itemProperties.itemName Component Name.");
-            handleScanCommand = CorePropertiesConfig.Bind("Mod Compatibility", "Let Brutal handle the SCAN command?", true, "If enabled, Brutal will handle the scan command with accurate scrap values to its modifiers. If you have other mods that handle this feature, disable it. Please note, if disabled, the scan command will not show the proper values for scrap value.");
-            speedrunMode = CorePropertiesConfig.Bind("Events Features", "Enable Speedrun Mode?", false, "If enabled, Brutal will adjust certain events and features to be suited for speedrunning. I recommend keeping this off unless you are actively speedrunning the game.");
-            EventChanceGlobal = getScale(CorePropertiesConfig.Bind("Events Features", "Chance of Events Occurring", "100, 0.0, 100, 100", "Chance of events occurring per day. " + scaleDescription).Value);
-            InitTimePopUp = CorePropertiesConfig.Bind("Events Features", "Initial Time PopUp", 5.0f, "Time of initial popup of tips.");
-            timeBetweenTips = CorePropertiesConfig.Bind("Events Features", "Time between tips", 5.0f, "Time in between tips messages in seconds.");
+            enableCustomEvents = CorePropertiesConfig.Bind("Custom Events", "Enable Custom Events?", true, "커스텀 이벤트 폴더에서 이벤트를 불러옵니다.");
+            ExtraLogging = CorePropertiesConfig.Bind("Debugging", "Enable Extra Logging?", false, "디버깅용 추가 로그를 출력합니다.");
+            SilenceEnum = CorePropertiesConfig.Bind("Debugging", "Silence Enum Warnings?", true, "열거형(enum) 불일치 경고를 숨깁니다.");
+            SilencePrefab = CorePropertiesConfig.Bind("Debugging", "Silence Prefab Warnings?", true, "프리팹 누락 경고를 숨깁니다.");
+            GetMethods = CorePropertiesConfig.Bind("Debugging", "Silence Get Method Warnings?", true, "설치되지 않은 모드의 적·아이템 관련 경고를 숨깁니다.");
+            DisableAllEvents = CorePropertiesConfig.Bind("Events Features", "Disable all events?", false, "true이면 모든 이벤트 발생을 끕니다. 이벤트 수가 0이 됩니다.");
+            dontHandlePower = CorePropertiesConfig.Bind("Mod Compatibility", "Experimental Dont Handle Power?", false, "다른 모드가 파워 레벨을 처리하게 하려면 켜세요. 일부 설정은 여전히 영향을 줄 수 있습니다.");
+            dontHandleSpawnCurves = CorePropertiesConfig.Bind("Mod Compatibility", "Experimental Dont Handle Spawn Chance?", false, "다른 모드가 스폰 확률 곡선을 처리하게 하려면 켜세요. 일부 설정은 여전히 영향을 줄 수 있습니다.");
+            AffectPropertiesOutOfEvents = CorePropertiesConfig.Bind("Mod Compatibility", "Let Brutal handle properties outside of events?", true, "false이면 이벤트 밖의 속성은 Brutal이 건드리지 않습니다.");
+            deferWeatherToMods = CorePropertiesConfig.Bind("Mod Compatibility", "Defer Weather To Weather ToolKit Mod?", false, "다른 모드가 Brutal 날씨 효과를 처리하게 하려면 켜세요. 커스텀 이벤트에는 기본적으로 Weather Toolkit을 씁니다.");
+            enforceEscapeModChecks = CorePropertiesConfig.Bind("Mod Compatibility", "Enforce Escape Mod Checks?", true, "탈출 AI 모드가 없을 때, AI 오작동을 막기 위해 일부 이벤트 스폰을 조정합니다. 안전 검사 없이 쓰려면 끄세요.");
+            enableSpecialEvents = CorePropertiesConfig.Bind("Events Features", "Enable Special Events?", false, "스페셜 이벤트를 불러옵니다.");
+            enableBetaEvents = CorePropertiesConfig.Bind("Events Features", "Enable Beta Events?", false, "베타 이벤트를 불러옵니다. 미검증이라 버그가 많을 수 있습니다.");
+            transmutationBlacklist = CorePropertiesConfig.Bind("Events Features", "Transmutation Blacklist", "", "스크랩 변환에 쓰이지 않게 막을 아이템 목록입니다. itemProperties.itemName(컴포넌트 이름)을 사용합니다.");
+            handleScanCommand = CorePropertiesConfig.Bind("Mod Compatibility", "Let Brutal handle the SCAN command?", true, "true이면 Brutal이 SCAN 명령과 스크랩 가치 표시를 처리합니다. 다른 모드가 담당하면 끄세요. 끄면 수정된 가치가 SCAN에 반영되지 않을 수 있습니다.");
+            speedrunMode = CorePropertiesConfig.Bind("Events Features", "Enable Speedrun Mode?", false, "true이면 스피드런에 맞게 일부 이벤트·기능을 조정합니다. 스피드런이 아니면 끄는 것을 권장합니다.");
+            EventChanceGlobal = getScale(CorePropertiesConfig.Bind("Events Features", "Chance of Events Occurring", "100, 0.0, 100, 100", "하루에 이벤트가 발생할 확률입니다. " + scaleDescription).Value);
+            InitTimePopUp = CorePropertiesConfig.Bind("Events Features", "Initial Time PopUp", 5.0f, "첫 팁이 뜨기까지의 대기 시간(초)입니다.");
+            timeBetweenTips = CorePropertiesConfig.Bind("Events Features", "Time between tips", 5.0f, "팁 메시지 사이 간격(초)입니다.");
 
             //Custom Events Folder
             try
@@ -368,16 +368,16 @@ namespace BrutalCompanyMinus
                 // Event settings
                 foreach (MEvent e in events)
                 {
-                    eventWeights.Add(toConfig.Bind(e.Name(), "Custom Weight", e.Weight, "If you want to use custom weights change 'Use custom weights'? setting in '__Event Settings' to true."));
-                    eventDescriptions.Add(ListToDescriptions(toConfig.Bind(e.Name(), "Descriptions", StringsToList(e.Descriptions, "|"), "Seperated by |").Value));
+                    eventWeights.Add(toConfig.Bind(e.Name(), "Custom Weight", e.Weight, "직접 가중치를 쓰려면 '_Event Settings'의 'Use custom weights?'를 true로 설정하세요."));
+                    eventDescriptions.Add(ListToDescriptions(toConfig.Bind(e.Name(), "Descriptions", StringsToList(e.Descriptions, "|"), "| 로 구분합니다.").Value));
                     eventColorHexes.Add(toConfig.Bind(e.Name(), "Color Hex", e.ColorHex));
                     eventTypes.Add(toConfig.Bind(e.Name(), "Event Type", e.Type));
 
-                    showTip.Add(toConfig.Bind(e.Name(), "Show Tip?", e.showTip, "Setting this to true will show tips."));
-                    TipsTitles.Add(ListToDescriptions(toConfig.Bind(e.Name(), "Tip Titles", StringsToList(e.TipTitle, "|"), "Seperated by |").Value));
-                    TipsList.Add(ListToDescriptions(toConfig.Bind(e.Name(), "Tip Messages", StringsToList(e.TipMessages, "|"), "Seperated by |").Value));
-                    TipIsWarning.Add(toConfig.Bind(e.Name(), "Is Tip A Warning?", e.isWarning, "Setting this to true will make it appear as an red warning. If false, will appear yellow."));
-                    eventEnables.Add(toConfig.Bind(e.Name(), "Event Enabled?", e.Enabled, "Setting this to false will stop the event from occuring.")); // Normal event
+                    showTip.Add(toConfig.Bind(e.Name(), "Show Tip?", e.showTip, "true이면 팁을 표시합니다."));
+                    TipsTitles.Add(ListToDescriptions(toConfig.Bind(e.Name(), "Tip Titles", StringsToList(e.TipTitle, "|"), "| 로 구분합니다.").Value));
+                    TipsList.Add(ListToDescriptions(toConfig.Bind(e.Name(), "Tip Messages", StringsToList(e.TipMessages, "|"), "| 로 구분합니다.").Value));
+                    TipIsWarning.Add(toConfig.Bind(e.Name(), "Is Tip A Warning?", e.isWarning, "true이면 빨간 경고로, false이면 노란 안내로 표시합니다."));
+                    eventEnables.Add(toConfig.Bind(e.Name(), "Event Enabled?", e.Enabled, "false이면 이 이벤트는 발생하지 않습니다.")); // Normal event
 
                     // Make scale list
                     Dictionary<ScaleType, Scale> scales = new Dictionary<ScaleType, Scale>();
@@ -388,22 +388,22 @@ namespace BrutalCompanyMinus
                     eventScales.Add(scales);
 
                     // EventsToRemove and EventsToSpawnWith and Moon Blacklist
-                    eventsToRemove.Add(ListToStrings(toConfig.Bind(e.Name(), "Events To Remove", StringsToList(e.EventsToRemove, ", "), "Will prevent said event(s) from occuring.").Value));
-                    eventsToSpawnWith.Add(ListToStrings(toConfig.Bind(e.Name(), "Events To Spawn With", StringsToList(e.EventsToSpawnWith, ", "), "Will spawn said events(s).").Value));
-                    eventAliases.Add(ListToStrings(toConfig.Bind(e.Name(), "Event Aliases", StringsToList(e.Aliases, ", "), "Seperate by comma for each alias. Aliases are another name that can be used when forcing events. Aliases are case-insensitive. To prevent potential errors, do not use the same alias on multiple events.").Value));
-                    moonMode.Add(toConfig.Bind(e.Name(), "Whitelist Mode?", e.MoonMode, "Which list should be used? Please note that if you are using the Whitelist mode, it must have at least one entry."));
-                    eventSpecial.Add(toConfig.Bind(e.Name(), "Special Event?", e.isSpecialEvent, "Special events require Enable Special Events to be enabled."));
-                    eventBeta.Add(toConfig.Bind(e.Name(), "Beta Event?", e.isBetaEvent, "Beta events require Enable Beta Events to be enabled."));
+                    eventsToRemove.Add(ListToStrings(toConfig.Bind(e.Name(), "Events To Remove", StringsToList(e.EventsToRemove, ", "), "목록의 이벤트가 발생하지 않도록 막습니다.").Value));
+                    eventsToSpawnWith.Add(ListToStrings(toConfig.Bind(e.Name(), "Events To Spawn With", StringsToList(e.EventsToSpawnWith, ", "), "목록의 이벤트를 함께 발생시킵니다.").Value));
+                    eventAliases.Add(ListToStrings(toConfig.Bind(e.Name(), "Event Aliases", StringsToList(e.Aliases, ", "), "쉼표로 별칭을 구분합니다. 이벤트 강제 발생 시 쓸 수 있으며 대소문자를 구분하지 않습니다. 여러 이벤트에 같은 별칭을 쓰지 마세요.").Value));
+                    moonMode.Add(toConfig.Bind(e.Name(), "Whitelist Mode?", e.MoonMode, "어떤 달 목록을 쓸지 선택합니다. 화이트리스트 모드는 항목이 하나 이상 있어야 합니다."));
+                    eventSpecial.Add(toConfig.Bind(e.Name(), "Special Event?", e.isSpecialEvent, "스페셜 이벤트는 'Enable Special Events'가 켜져 있어야 합니다."));
+                    eventBeta.Add(toConfig.Bind(e.Name(), "Beta Event?", e.isBetaEvent, "베타 이벤트는 'Enable Beta Events'가 켜져 있어야 합니다."));
 
-                    moonBlacklist.Add(ListToStrings(toConfig.Bind(e.Name(), "Moons To Not Spawn On", StringsToList(e.Blacklist, ", "), "Event will not spawn on these moons. Seperate by comma for each moon name. List must be populated").Value));
-                    moonWhitelist.Add(ListToStrings(toConfig.Bind(e.Name(), "Moons To Spawn Only On", StringsToList(e.Whitelist, ", "), "Event will only spawn on these moons. Seperate by comma for each moon name. List must be populated.").Value));
+                    moonBlacklist.Add(ListToStrings(toConfig.Bind(e.Name(), "Moons To Not Spawn On", StringsToList(e.Blacklist, ", "), "이 달에서는 이벤트가 발생하지 않습니다. 달 이름은 쉼표로 구분하고 목록을 채워야 합니다.").Value));
+                    moonWhitelist.Add(ListToStrings(toConfig.Bind(e.Name(), "Moons To Spawn Only On", StringsToList(e.Whitelist, ", "), "이 달에서만 이벤트가 발생합니다. 달 이름은 쉼표로 구분하고 목록을 채워야 합니다.").Value));
 
                     // Monster events
                     List<MonsterEvent> newMonsterEvents = new List<MonsterEvent>();
                     for (int i = 0; i < e.monstersToSpawn.Count; i++)
                     {
                         newMonsterEvents.Add(new MonsterEvent(
-                            toConfig.Bind(e.Name(), $"Enemy {i} Name", e.monstersToSpawn[i].enemy.name, "Inputting an invalid enemy name will cause it to return an empty enemyType").Value,
+                            toConfig.Bind(e.Name(), $"Enemy {i} Name", e.monstersToSpawn[i].enemy.name, "잘못된 적 이름이면 빈 enemyType이 반환됩니다.").Value,
                             getScale(toConfig.Bind(e.Name(), $"{e.monstersToSpawn[i].enemy.name} {ScaleType.InsideEnemyRarity}", GetStringFromScale(e.monstersToSpawn[i].insideSpawnRarity), $"{ScaleInfoList[ScaleType.InsideEnemyRarity]}   {scaleDescription}").Value),
                             getScale(toConfig.Bind(e.Name(), $"{e.monstersToSpawn[i].enemy.name} {ScaleType.OutsideEnemyRarity}", GetStringFromScale(e.monstersToSpawn[i].outsideSpawnRarity), $"{ScaleInfoList[ScaleType.OutsideEnemyRarity]}   {scaleDescription}").Value),
                             getScale(toConfig.Bind(e.Name(), $"{e.monstersToSpawn[i].enemy.name} {ScaleType.MinInsideEnemy}", GetStringFromScale(e.monstersToSpawn[i].minInside), $"{ScaleInfoList[ScaleType.MinInsideEnemy]}   {scaleDescription}").Value),
@@ -421,7 +421,7 @@ namespace BrutalCompanyMinus
                     for (int i = 0; i < e.scrapTransmutationEvent.items.Length; i++)
                     {
                         newScrapTransmuations[i] = new SpawnableItemWithRarity(
-                            GetItem(toConfig.Bind(e.Name(), $"Scrap {i} name", e.scrapTransmutationEvent.items[i].spawnableItem.name, "Inputting an invalid scrap name will cause it to return an empty item").Value),
+                            GetItem(toConfig.Bind(e.Name(), $"Scrap {i} name", e.scrapTransmutationEvent.items[i].spawnableItem.name, "잘못된 스크랩 이름이면 빈 아이템이 반환됩니다.").Value),
                             toConfig.Bind(e.Name(), $"{e.scrapTransmutationEvent.items[i].spawnableItem.name} Rarity", e.scrapTransmutationEvent.items[i].rarity).Value
                         );
                     }
@@ -466,35 +466,35 @@ namespace BrutalCompanyMinus
             //EventManager.events.AddRange(EventManager.ExternalEvents);
 
             // Specific event settings
-            Minus.Handlers.FacilityGhost.actionTimeCooldown = eventConfig.Bind(nameof(FacilityGhost), "Normal Action Time Interval", 15.0f, "How often does it take for the ghost to make a decision?").Value;
-            Minus.Handlers.FacilityGhost.ghostCrazyActionInterval = eventConfig.Bind(nameof(FacilityGhost), "Crazy Action Time Interval", 0.1f, "How often does it take for the ghost to make a decision while going crazy?").Value;
-            Minus.Handlers.FacilityGhost.ghostCrazyPeriod = eventConfig.Bind(nameof(FacilityGhost), "Crazy Period", 5.0f, "How long will the ghost go crazy for?").Value;
-            Minus.Handlers.FacilityGhost.crazyGhostChance = eventConfig.Bind(nameof(FacilityGhost), "Crazy Chance", 0.1f, "Whenever the ghost makes a decision, what is the chance that it will go crazy?").Value;
-            Minus.Handlers.FacilityGhost.DoNothingWeight = eventConfig.Bind(nameof(FacilityGhost), "Do Nothing Weight?", 25, "Whenever the ghost makes a decision, what is the weight to do nothing?").Value;
-            Minus.Handlers.FacilityGhost.OpenCloseBigDoorsWeight = eventConfig.Bind(nameof(FacilityGhost), "Open and close big doors weight", 20, "Whenever the ghost makes a decision, what is the weight for ghost to open and close big doors?").Value;
-            Minus.Handlers.FacilityGhost.MessWithLightsWeight = eventConfig.Bind(nameof(FacilityGhost), "Mess with lights weight", 16, "Whenever the ghost makes a decision, what is the weight to mess with lights?").Value;
-            Minus.Handlers.FacilityGhost.MessWithBreakerWeight = eventConfig.Bind(nameof(FacilityGhost), "Mess with breaker weight", 4, "Whenever the ghost makes a decision, what is the weight to mess with the breaker?").Value;
-            Minus.Handlers.FacilityGhost.disableTurretsWeight = eventConfig.Bind(nameof(FacilityGhost), "Disable turrets weight?", 5, "Whenever the ghost makes a decision, what is the weight to attempt to disable the turrets?").Value;
-            Minus.Handlers.FacilityGhost.disableLandminesWeight = eventConfig.Bind(nameof(FacilityGhost), "Disable landmines weight?", 5, "Whenever the ghost makes a decision, what is the weight to attempt to disable the landmines?").Value;
-            Minus.Handlers.FacilityGhost.turretRageWeight = eventConfig.Bind(nameof(FacilityGhost), "Turret rage weight?", 5, "Whenever the ghost makes a decision, what is the weight to attempt to make turrets rage?").Value;
-            Minus.Handlers.FacilityGhost.OpenCloseDoorsWeight = eventConfig.Bind(nameof(FacilityGhost), "Open and close normal doors weight", 9, "Whenever the ghost makes a decision, what is the weight to attempt to open and close normal doors.").Value;
-            Minus.Handlers.FacilityGhost.lockUnlockDoorsWeight = eventConfig.Bind(nameof(FacilityGhost), "Lock and unlock normal doors weight", 3, "Whenever the ghost makes a decision, what is the weight to attempt to lock and unlock normal doors.").Value;
-            Minus.Handlers.FacilityGhost.chanceToOpenCloseDoor = eventConfig.Bind(nameof(FacilityGhost), "Chance to open and close normal doors", 0.3f, "Whenever the ghosts decides to open and close doors, what is the chance for each individual door that it will do that.").Value;
-            Minus.Handlers.FacilityGhost.rageTurretsChance = eventConfig.Bind(nameof(FacilityGhost), "Chance to rage a turret", 0.3f, "Whenever the ghosts decides to rage a turret, what is the chance for each individual turret that it will do that.").Value;
+            Minus.Handlers.FacilityGhost.actionTimeCooldown = eventConfig.Bind(nameof(FacilityGhost), "Normal Action Time Interval", 15.0f, "유령이 행동을 결정하는 간격(초)입니다.").Value;
+            Minus.Handlers.FacilityGhost.ghostCrazyActionInterval = eventConfig.Bind(nameof(FacilityGhost), "Crazy Action Time Interval", 0.1f, "유령이 광란 상태일 때 행동을 결정하는 간격(초)입니다.").Value;
+            Minus.Handlers.FacilityGhost.ghostCrazyPeriod = eventConfig.Bind(nameof(FacilityGhost), "Crazy Period", 5.0f, "유령이 광란 상태로 유지되는 시간(초)입니다.").Value;
+            Minus.Handlers.FacilityGhost.crazyGhostChance = eventConfig.Bind(nameof(FacilityGhost), "Crazy Chance", 0.1f, "행동 결정 시 광란 상태가 될 확률입니다.").Value;
+            Minus.Handlers.FacilityGhost.DoNothingWeight = eventConfig.Bind(nameof(FacilityGhost), "Do Nothing Weight?", 25, "행동 결정 시 아무것도 하지 않을 가중치입니다.").Value;
+            Minus.Handlers.FacilityGhost.OpenCloseBigDoorsWeight = eventConfig.Bind(nameof(FacilityGhost), "Open and close big doors weight", 20, "행동 결정 시 대형 문을 열고 닫을 가중치입니다.").Value;
+            Minus.Handlers.FacilityGhost.MessWithLightsWeight = eventConfig.Bind(nameof(FacilityGhost), "Mess with lights weight", 16, "행동 결정 시 조명을 건드릴 가중치입니다.").Value;
+            Minus.Handlers.FacilityGhost.MessWithBreakerWeight = eventConfig.Bind(nameof(FacilityGhost), "Mess with breaker weight", 4, "행동 결정 시 차단기를 건드릴 가중치입니다.").Value;
+            Minus.Handlers.FacilityGhost.disableTurretsWeight = eventConfig.Bind(nameof(FacilityGhost), "Disable turrets weight?", 5, "행동 결정 시 포탑을 끌 가중치입니다.").Value;
+            Minus.Handlers.FacilityGhost.disableLandminesWeight = eventConfig.Bind(nameof(FacilityGhost), "Disable landmines weight?", 5, "행동 결정 시 지뢰를 끌 가중치입니다.").Value;
+            Minus.Handlers.FacilityGhost.turretRageWeight = eventConfig.Bind(nameof(FacilityGhost), "Turret rage weight?", 5, "행동 결정 시 포탑을 폭주시킬 가중치입니다.").Value;
+            Minus.Handlers.FacilityGhost.OpenCloseDoorsWeight = eventConfig.Bind(nameof(FacilityGhost), "Open and close normal doors weight", 9, "행동 결정 시 일반 문을 열고 닫을 가중치입니다.").Value;
+            Minus.Handlers.FacilityGhost.lockUnlockDoorsWeight = eventConfig.Bind(nameof(FacilityGhost), "Lock and unlock normal doors weight", 3, "행동 결정 시 일반 문을 잠그거나 열 가중치입니다.").Value;
+            Minus.Handlers.FacilityGhost.chanceToOpenCloseDoor = eventConfig.Bind(nameof(FacilityGhost), "Chance to open and close normal doors", 0.3f, "문 열기·닫기를 선택했을 때, 각 문마다 실제로 적용될 확률입니다.").Value;
+            Minus.Handlers.FacilityGhost.rageTurretsChance = eventConfig.Bind(nameof(FacilityGhost), "Chance to rage a turret", 0.3f, "포탑 폭주를 선택했을 때, 각 포탑마다 실제로 적용될 확률입니다.").Value;
 
-            Minus.Handlers.RealityShift.normalScrapWeight = eventConfig.Bind(nameof(RealityShift), "Normal shift weight", 85, "Weight for transforming scrap into some other scrap?").Value;
-            Minus.Handlers.RealityShift.grabbableLandmineWeight = eventConfig.Bind(nameof(RealityShift), "Grabbable landmine shift weight", 15, "Weight for transforming scrap into a grabbable landmine?").Value;
-            Minus.Handlers.RealityShift.transmuteChance = eventConfig.Bind(nameof(RealityShift), "Chance to transmute", 0.5f, "Chance for transmutation to occur.").Value;
-            Minus.Handlers.RealityShift.enemyTeleportChance = eventConfig.Bind(nameof(RealityShift), "Enemy teleport chance", 0.1f, "Chance enemy teleportation to occur when hit.").Value;
+            Minus.Handlers.RealityShift.normalScrapWeight = eventConfig.Bind(nameof(RealityShift), "Normal shift weight", 85, "스크랩을 다른 스크랩으로 바꿀 가중치입니다.").Value;
+            Minus.Handlers.RealityShift.grabbableLandmineWeight = eventConfig.Bind(nameof(RealityShift), "Grabbable landmine shift weight", 15, "스크랩을 줍기 가능한 지뢰로 바꿀 가중치입니다.").Value;
+            Minus.Handlers.RealityShift.transmuteChance = eventConfig.Bind(nameof(RealityShift), "Chance to transmute", 0.5f, "변환이 일어날 확률입니다.").Value;
+            Minus.Handlers.RealityShift.enemyTeleportChance = eventConfig.Bind(nameof(RealityShift), "Enemy teleport chance", 0.1f, "적이 맞았을 때 순간이동할 확률입니다.").Value;
 
 
-            DDay.bombardmentInterval = eventConfig.Bind(nameof(Warzone), "Bombardment interval", 100, "The time it takes before each bombardment event.").Value;
-            DDay.bombardmentTime = eventConfig.Bind(nameof(Warzone), "Bombardment time", 15, "When a bombardment event occurs, how long will it last?").Value;
-            DDay.fireInterval = eventConfig.Bind(nameof(Warzone), "Fire interval", 1, "During a bombardment event how often will it fire?").Value;
-            DDay.fireAmount = eventConfig.Bind(nameof(Warzone), "Fire amount", 8, "For every fire interval, how many shot's will it take? This will get scaled higher on bigger maps.").Value;
-            DDay.displayWarning = eventConfig.Bind(nameof(Warzone), "Display warning?", true, "Display warning message before bombardment?").Value;
-            DDay.volume = eventConfig.Bind(nameof(Warzone), "Siren Volume?", 0.3f, "Volume of the siren? between 0.0 and 1.0").Value;
-            ArtilleryShell.speed = eventConfig.Bind(nameof(Warzone), "Artillery shell speed", 100.0f, "How fast does the artillery shell travel?").Value;
+            DDay.bombardmentInterval = eventConfig.Bind(nameof(Warzone), "Bombardment interval", 100, "포격 이벤트 사이의 대기 시간입니다.").Value;
+            DDay.bombardmentTime = eventConfig.Bind(nameof(Warzone), "Bombardment time", 15, "포격이 한 번 발생하면 지속되는 시간(초)입니다.").Value;
+            DDay.fireInterval = eventConfig.Bind(nameof(Warzone), "Fire interval", 1, "포격 중 발사 간격(초)입니다.").Value;
+            DDay.fireAmount = eventConfig.Bind(nameof(Warzone), "Fire amount", 8, "발사 간격마다 쏘는 발 수입니다. 큰 맵일수록 더 많아집니다.").Value;
+            DDay.displayWarning = eventConfig.Bind(nameof(Warzone), "Display warning?", true, "포격 전에 경고 메시지를 표시할지 여부입니다.").Value;
+            DDay.volume = eventConfig.Bind(nameof(Warzone), "Siren Volume?", 0.3f, "사이렌 음량입니다(0.0~1.0).").Value;
+            ArtilleryShell.speed = eventConfig.Bind(nameof(Warzone), "Artillery shell speed", 100.0f, "포탄이 날아가는 속도입니다.").Value;
 
             //Minus.Handlers.Mimics.spawnRateScales[0] = getScale(moddedEventConfig.Bind(nameof(Mimics), "Zero Mimics Scale", "0, 0, 0, 0", "Weight Scale of zero mimics spawning   " + scaleDescription).Value);
             //Minus.Handlers.Mimics.spawnRateScales[1] = getScale(moddedEventConfig.Bind(nameof(Mimics), "One Mimic Scale", "0, 0, 0, 0", "Weight Scale of one mimic spawning   " + scaleDescription).Value);
@@ -628,8 +628,8 @@ namespace BrutalCompanyMinus
 
         private static void CreateAllEnemiesConfig()
         {
-            enableAllEnemies = allEnemiesConfig.Bind("_All Enemies", "Enable?", false, "This will make all enemies capable of spawning on all moons, this will make the game harder.");
-            enableAllAllEnemies = allEnemiesConfig.Bind("_All All Enemies", "Enable?", false, "This will make all inside enemies spawn inside and outside and all outside enemies spawn inside and outside, so giants and worms can spawn inside, enable both 'All' and 'All All' if you are a sadist. This will make the game harder.");
+            enableAllEnemies = allEnemiesConfig.Bind("_All Enemies", "Enable?", false, "모든 적이 모든 달에 스폰될 수 있게 합니다. 난이도가 크게 올라갑니다.");
+            enableAllAllEnemies = allEnemiesConfig.Bind("_All All Enemies", "Enable?", false, "내부·외부 적 구분 없이 어디서나 스폰되게 합니다(거인·벌레가 시설 안에도 등장). 'All'과 'All All'을 함께 켜면 극악 난이도입니다.");
 
             List<EnemySpawnInfo> allSpawnInfos = new List<EnemySpawnInfo>()
             {
@@ -676,8 +676,8 @@ namespace BrutalCompanyMinus
             allEnemiesCycle = new SpawnCycle()
             {
                 enemies = allSpawnInfos,
-                nothingWeight = allEnemiesConfig.Bind("_All Enemies", "All enemies nothing weight", 400.0f, "This is the weight chance for a spawn to not occur.").Value,
-                spawnAttemptInterval = allEnemiesConfig.Bind("_All Enemies", "Spawn interval", 86.0f, "How often will this cycle attempt to spawn an enemy? in seconds").Value,
+                nothingWeight = allEnemiesConfig.Bind("_All Enemies", "All enemies nothing weight", 400.0f, "스폰이 일어나지 않을 가중치입니다.").Value,
+                spawnAttemptInterval = allEnemiesConfig.Bind("_All Enemies", "Spawn interval", 86.0f, "이 주기가 스폰을 시도하는 간격(초)입니다.").Value,
                 spawnCycleDuration = 0.0f
             };
 
@@ -743,8 +743,8 @@ namespace BrutalCompanyMinus
             allAllEnemiesCycle = new SpawnCycle()
             {
                 enemies = allAllSpawnInfos,
-                nothingWeight = allEnemiesConfig.Bind("_All All Enemies", "All enemies nothing weight", 400.0f, "This is the weight chance for a spawn to not occur.").Value,
-                spawnAttemptInterval = allEnemiesConfig.Bind("_All All Enemies", "Spawn interval", 86.0f, "How often will this cycle attempt to spawn enemies? in seconds").Value,
+                nothingWeight = allEnemiesConfig.Bind("_All All Enemies", "All enemies nothing weight", 400.0f, "스폰이 일어나지 않을 가중치입니다.").Value,
+                spawnAttemptInterval = allEnemiesConfig.Bind("_All All Enemies", "Spawn interval", 86.0f, "이 주기가 스폰을 시도하는 간격(초)입니다.").Value,
                 spawnCycleDuration = 0.0f
             };
         }
@@ -755,8 +755,8 @@ namespace BrutalCompanyMinus
             return new EnemySpawnInfo()
             {
                 enemy = GetEnemyOrDefault(enemy).enemyPrefab,
-                enemyWeight = allEnemiesConfig.Bind(header, $"{spawnLocation} {enemy} Weight", defaultWeight, "weight").Value,
-                spawnCap = allEnemiesConfig.Bind(header, $"{spawnLocation} {enemy} Spawn Cap", spawnCap, "weight").Value,
+                enemyWeight = allEnemiesConfig.Bind(header, $"{spawnLocation} {enemy} Weight", defaultWeight, "스폰 가중치입니다.").Value,
+                spawnCap = allEnemiesConfig.Bind(header, $"{spawnLocation} {enemy} Spawn Cap", spawnCap, "최대 스폰 수입니다.").Value,
                 spawnLocation = spawnLocation
             };
         }
@@ -767,7 +767,7 @@ namespace BrutalCompanyMinus
         [HarmonyPatch(typeof(TimeOfDay), "Awake")]
         private static void OnTimeDayStart(ref TimeOfDay __instance)
         {
-            enableQuotaChanges = difficultyConfig.Bind("Quota Settings", "_Enable Quota Changes", false, "Once set to true, load up a save to generate the rest of this config, this will take values from the game as default.");
+            enableQuotaChanges = difficultyConfig.Bind("Quota Settings", "_Enable Quota Changes", false, "true로 설정한 뒤 세이브를 불러오면 나머지 할당량 설정이 생성됩니다. 기본값은 게임 값을 따릅니다.");
             if (enableQuotaChanges.Value)
             {
                 __instance.quotaVariables.deadlineDaysAmount = difficultyConfig.Bind("Quota Settings", "Deadline Days Amount", __instance.quotaVariables.deadlineDaysAmount).Value;

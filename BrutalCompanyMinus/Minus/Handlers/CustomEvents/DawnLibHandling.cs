@@ -1,12 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
 using BrutalCompanyMinus.Minus.CustomEvents;
 using Dawn;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace BrutalCompanyMinus.Minus.Handlers.CustomEvents
 {
@@ -53,7 +49,7 @@ namespace BrutalCompanyMinus.Minus.Handlers.CustomEvents
             bool managed = false;
             foreach (DawnMapObjectInfo mapObjectInfo in LethalContent.MapObjects.Values)
             {
-                if (mapObjectInfo.ShouldSkipIgnoreOverride() || mapObjectInfo.MapObject.name != hazardName)
+                if (mapObjectInfo.ShouldSkipIgnoreOverride() || mapObjectInfo.GetMapObjectPrefab()?.name != hazardName)
                     continue;
 
                 DawnOutsideMapObjectInfo? outsideInfo = mapObjectInfo.OutsideInfo;
@@ -76,10 +72,10 @@ namespace BrutalCompanyMinus.Minus.Handlers.CustomEvents
             bool processed = false;
             foreach (DawnMapObjectInfo mapObjectInfo in LethalContent.MapObjects.Values)
             {
-                if (mapObjectInfo.ShouldSkipIgnoreOverride() || mapObjectInfo.MapObject.name != hazard.hazardObject.name)
+                if (mapObjectInfo.ShouldSkipIgnoreOverride() || mapObjectInfo.GetMapObjectPrefab()?.name != hazard.hazardObject.name)
                     continue;
 
-                string hazardName = mapObjectInfo.MapObject.name;
+                string hazardName = mapObjectInfo.GetMapObjectPrefab()!.name;
 
                 if (!originalStates.ContainsKey(hazardName))
                 {
@@ -87,12 +83,12 @@ namespace BrutalCompanyMinus.Minus.Handlers.CustomEvents
                     {
                         OutsideWeights = mapObjectInfo.OutsideInfo?.SpawnWeights,
                         InsideWeights = mapObjectInfo.InsideInfo?.SpawnWeights,
-                        FacingAway = mapObjectInfo.InsideInfo?.SpawnFacingAwayFromWall ?? false,
-                        FacingWall = mapObjectInfo.InsideInfo?.SpawnFacingWall ?? false,
-                        BackToWall = mapObjectInfo.InsideInfo?.SpawnWithBackToWall ?? false,
-                        BackFlush = mapObjectInfo.InsideInfo?.SpawnWithBackFlushAgainstWall ?? false,
-                        ReqDist = mapObjectInfo.InsideInfo?.RequireDistanceBetweenSpawns ?? false,
-                        DisallowNear = mapObjectInfo.InsideInfo?.DisallowSpawningNearEntrances ?? false
+                        FacingAway = mapObjectInfo.InsideInfo?.IndoorMapHazardType.spawnFacingAwayFromWall ?? false,
+                        FacingWall = mapObjectInfo.InsideInfo?.IndoorMapHazardType.spawnFacingWall ?? false,
+                        BackToWall = mapObjectInfo.InsideInfo?.IndoorMapHazardType.spawnWithBackToWall ?? false,
+                        BackFlush = mapObjectInfo.InsideInfo?.IndoorMapHazardType.spawnWithBackFlushAgainstWall ?? false,
+                        ReqDist = mapObjectInfo.InsideInfo?.IndoorMapHazardType.requireDistanceBetweenSpawns ?? false,
+                        DisallowNear = mapObjectInfo.InsideInfo?.IndoorMapHazardType.disallowSpawningNearEntrances ?? false
                     };
                 }
 
@@ -126,12 +122,14 @@ namespace BrutalCompanyMinus.Minus.Handlers.CustomEvents
                     insideInfo.SpawnWeights = new CurveTableBuilder<DawnMoonInfo, SpawnWeightContext>()
                         .AddCurve(moonKey, AnimationCurve.Constant(0, 1, insideWeight))
                         .Build();
-                    insideInfo.SpawnFacingAwayFromWall = hazard.facingAwayFromWall;
-                    insideInfo.SpawnFacingWall = hazard.facingWall;
-                    insideInfo.SpawnWithBackToWall = hazard.backToWall;
-                    insideInfo.SpawnWithBackFlushAgainstWall = hazard.backFlushWithWall;
-                    insideInfo.RequireDistanceBetweenSpawns = hazard.requireDistanceBetween;
-                    insideInfo.DisallowSpawningNearEntrances = hazard.disallowNearEntrances;
+                    IndoorMapHazardType hazardType = insideInfo.IndoorMapHazardType;
+                    hazardType.spawnFacingAwayFromWall = hazard.facingAwayFromWall;
+                    hazardType.spawnFacingWall = hazard.facingWall;
+                    hazardType.spawnWithBackToWall = hazard.backToWall;
+                    hazardType.spawnWithBackFlushAgainstWall = hazard.backFlushWithWall;
+                    hazardType.requireDistanceBetweenSpawns = hazard.requireDistanceBetween;
+                    hazardType.disallowSpawningNearEntrances = hazard.disallowNearEntrances;
+                    insideInfo.IndoorMapHazardType = hazardType;
 
                     mapObjectInfo.InsideInfo = insideInfo;
                     processed = true;
@@ -156,7 +154,7 @@ namespace BrutalCompanyMinus.Minus.Handlers.CustomEvents
             {
                 foreach (DawnMapObjectInfo mapObjectInfo in LethalContent.MapObjects.Values)
                 {
-                    if (mapObjectInfo.MapObject.name == entry.Key)
+                    if (mapObjectInfo.GetMapObjectPrefab()?.name == entry.Key)
                     {
                         if (mapObjectInfo.OutsideInfo != null)
                             mapObjectInfo.OutsideInfo.SpawnWeights = (ProviderTable<AnimationCurve?, DawnMoonInfo, SpawnWeightContext>?)entry.Value.OutsideWeights;
@@ -164,12 +162,14 @@ namespace BrutalCompanyMinus.Minus.Handlers.CustomEvents
                         if (mapObjectInfo.InsideInfo != null)
                         {
                             mapObjectInfo.InsideInfo.SpawnWeights = (ProviderTable<AnimationCurve?, DawnMoonInfo, SpawnWeightContext>?)entry.Value.InsideWeights;
-                            mapObjectInfo.InsideInfo.SpawnFacingAwayFromWall = entry.Value.FacingAway;
-                            mapObjectInfo.InsideInfo.SpawnFacingWall = entry.Value.FacingWall;
-                            mapObjectInfo.InsideInfo.SpawnWithBackToWall = entry.Value.BackToWall;
-                            mapObjectInfo.InsideInfo.SpawnWithBackFlushAgainstWall = entry.Value.BackFlush;
-                            mapObjectInfo.InsideInfo.RequireDistanceBetweenSpawns = entry.Value.ReqDist;
-                            mapObjectInfo.InsideInfo.DisallowSpawningNearEntrances = entry.Value.DisallowNear;
+                            IndoorMapHazardType ht = mapObjectInfo.InsideInfo.IndoorMapHazardType;
+                            ht.spawnFacingAwayFromWall = entry.Value.FacingAway;
+                            ht.spawnFacingWall = entry.Value.FacingWall;
+                            ht.spawnWithBackToWall = entry.Value.BackToWall;
+                            ht.spawnWithBackFlushAgainstWall = entry.Value.BackFlush;
+                            ht.requireDistanceBetweenSpawns = entry.Value.ReqDist;
+                            ht.disallowSpawningNearEntrances = entry.Value.DisallowNear;
+                            mapObjectInfo.InsideInfo.IndoorMapHazardType = ht;
                         }
                         break;
                     }

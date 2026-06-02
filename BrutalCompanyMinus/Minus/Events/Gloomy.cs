@@ -20,7 +20,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 8;
-            Descriptions = new List<string>() { "It's gloomy out here", "Misty", "Who turned on the fog machine?" };
+            Descriptions = new List<string>() { "밖이 어둑어둑하네요", "안개가 자욱합니다", "누가 안개 제조기를 틀어놨죠?" };
             ColorHex = "#FFFFFF";
             Type = EventType.Neutral;
         }

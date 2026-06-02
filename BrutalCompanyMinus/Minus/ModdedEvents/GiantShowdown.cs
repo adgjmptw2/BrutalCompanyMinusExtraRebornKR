@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Attack on titan!!", "Battle of giants", "Take your bets..." };
+            Descriptions = new List<string>() { "진격의 거인!!", "거인들의 전쟁", "내기를 걸어보세요..." };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

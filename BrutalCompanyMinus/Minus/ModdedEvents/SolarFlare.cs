@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Solar Flare Incoming!", "A massive solar flare is approaching!" };
+            Descriptions = new List<string>() { "긴급: 태양풍 접근 중!", "초대형 태양풍이 옵니다! (지직...) 타 죽기 싫으면 뛰세요!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

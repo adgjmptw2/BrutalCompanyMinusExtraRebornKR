@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;
-            Descriptions = new List<string>() { "No goo", "No slimes", "A mysterious force repels slimes", "The absence of slimes bring a calm to this planet." };
+            Descriptions = new List<string>() { "끈적이 없음", "슬라임 없음", "신비로운 힘이 슬라임을 밀어내고 있습니다", "슬라임이 사라지자 이 행성에 평화가 찾아왔습니다." };
             ColorHex = "#008000";
             Type = EventType.Remove;
 

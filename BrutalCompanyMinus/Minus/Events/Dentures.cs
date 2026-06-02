@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Grandma forgot her dentures...", "The tooth fairies dream", "It grins from every corner" };
+            Descriptions = new List<string>() { "할머니가 틀니를 깜빡하셨네요...", "이빨 요정의 꿈", "구석구석에서 그것이 미소 짓고 있습니다" };
             ColorHex = "#008000";
             Type = EventType.Good;
 

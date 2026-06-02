@@ -19,7 +19,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Flying miniguns", "MantiToils... but more advanced", "MantiSlayers!!!" };
+            Descriptions = new List<string>() { "날아다니는 미니건", "맨티토일... 하지만 더 진화했습니다", "맨티슬레이어!!!" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

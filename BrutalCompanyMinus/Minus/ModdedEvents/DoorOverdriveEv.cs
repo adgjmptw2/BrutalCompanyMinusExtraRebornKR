@@ -16,7 +16,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Door system: OVERDRIVE", "Door overdrive" };
+            Descriptions = new List<string>() { "출입문 시스템: 과부하", "출입문 과부하" };
             ColorHex = "#008000";
             Type = EventType.Good;
 

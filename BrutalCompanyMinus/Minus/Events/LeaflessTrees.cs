@@ -21,7 +21,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 4;
-            Descriptions = new List<string>() { "These trees look dead", "These trees have lost their touch", "It's winter" };
+            Descriptions = new List<string>() { "이 나무들은 죽은 것 같네요", "이 나무들도 이제 예전 같지 않군요", "겨울입니다" };
             ColorHex = "#FFFFFF";
             Type = EventType.Neutral;
 

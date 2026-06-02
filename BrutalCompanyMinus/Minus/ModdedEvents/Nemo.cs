@@ -15,7 +15,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 2;
-            Descriptions = new List<string>() { "Finding Nemo", "You found him" };
+            Descriptions = new List<string>() { "니모를 찾아서", "그를 찾아냈군요" };
             ColorHex = "#008000";
             Type = EventType.Good;
 

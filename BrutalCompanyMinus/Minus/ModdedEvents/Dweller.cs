@@ -13,7 +13,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 1;//3
-            Descriptions = new List<string>() { "Maneater... but outside, good luck", "Dont be scared" };
+            Descriptions = new List<string>() { "맨이터... 하지만 실외입니다, 행운을 빌어요", "겁먹지 마세요" };
             ColorHex = "#800000";
             Type = EventType.VeryBad;
 

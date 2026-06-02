@@ -26,7 +26,7 @@ namespace BrutalCompanyMinus.Minus.Events
             Instance = this;
 
             Weight = 3;
-            Descriptions = new List<string>() { "Somehow, all items are affected by lightning", "Consider yourself cursed by the storm gods!" };
+            Descriptions = new List<string>() { "어쩐 일인지 모든 물건이 번개의 영향을 받네요?", "폭풍의 신들에게 저주받았네요!" };
             ColorHex = "#FF0000";
             Type = EventType.Bad;
 

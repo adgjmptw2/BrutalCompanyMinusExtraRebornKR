@@ -1,3 +1,12 @@
+# Brutal Company Minus Extra Reborn 한국어 번역판
+
+[TheSoftDiamond/BrutalCompanyMinusExtraReborn](https://github.com/TheSoftDiamond/BrutalCompanyMinusExtraReborn) 1.50.6의 한국어 번역판입니다.
+
+- Thunderstore: [BrutalCompanyMinusExtraRebornKR](https://thunderstore.io/c/lethal-company/p/MINE9289/BrutalCompanyMinusExtraRebornKR/) (다운로드 7,313, 2026.10.30)
+- 원본 설명은 아래에 그대로 두었습니다.
+
+---
+
 # Brutal Company Minus Extra Reborn
 ![Screenshot](https://softdiamond.net/BCMERAssets/icon.png)
 
